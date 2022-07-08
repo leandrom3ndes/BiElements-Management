@@ -1,0 +1,41 @@
+<div class="row" ng-controller="memberProfile as md">
+    <div class="col-sm-12">
+        <h3 class="mb-3 border-bottom pb-1">Member Name</h3>
+        <nav>
+            <div class="nav nav-tabs" id="nav-tab" role="tablist">
+              <a class="nav-item nav-link active" id="nav-home-tab" target="_self" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-home" aria-selected="true">Profile</a>
+              <a class="nav-item nav-link" id="nav-profile-tab" target="_self" data-toggle="tab" href="#nav-collection" role="tab" aria-controls="nav-profile" aria-selected="false">Collection</a>
+            </div>
+          </nav>
+          <div class="tab-content bg-white" id="nav-tabContent">
+            <div class="tab-pane fade show active bg-white pt-2" id="nav-profile" role="tabpanel" aria-labelledby="nav-home-tab">
+              <table class="table table-bordered">
+                <tr>
+                  <th>Full Name</th>
+                  <td>{{ md.memberData.member_name }}</td>
+                </tr>
+                <tr>
+                  <th>Email</th>
+                  <td>{{ md.memberData.member_email }}</td>
+                </tr>
+              </table>
+            </div>
+            <div class="tab-pane fade bg-white pt-2" id="nav-collection" role="tabpanel" aria-labelledby="nav-profile-tab">
+              <div class="row">
+                <div class="col-sm-3" ng-repeat="collect in md.collections">
+                    <div class="card">
+                        <img src="storage/books/{{ collect.book_cover_img }}" class="card-img-top" alt="{{ collect.book_name }}">
+                        <div class="card-body">
+                          <h5 class="card-title">{{ collect.book_name }}</h5>
+                          <p class="card-text">{{ collect.book_desc }}</p>
+                          <a href="#!/bookdetail/{{ collect.book_id }}" class="btn btn-primary">
+                            <i class="fa fa-eye"></i> Detail
+                          </a>
+                        </div>
+                    </div>
+                </div>
+              </div>
+            </div>
+          </div>
+    </div>
+</div>

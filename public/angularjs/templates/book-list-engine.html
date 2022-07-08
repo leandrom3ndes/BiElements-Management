@@ -1,0 +1,22 @@
+<div ng-controller="bookListCategory as blc">
+<h3 class="mb-4 border-bottom pb-2">{{ blc.bookData.eng_name }} <span class="badge badge-secondary">{{ blc.bookData.totalBooks }}</span></h3>
+<div class="row">
+    <div class="col-md-4 book-list" ng-repeat="book in blc.bookData.allBooks">
+        <div class="card mb-4 shadow-sm">
+            <img class="img-fluid" src="storage/books/{{ book.book_cover_img }}" />
+            <div class="card-body">
+                <h4><a href="#!/bookdetail/{{ book.id }}">{{ book.book_name }}</a></h4>
+                <p class="card-text">{{ book.book_desc }}</p>
+                <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group">
+                        <a href="#!/bookdetail/{{ book.id }}" class="btn btn-primary">
+                            <i class="fa fa-eye"></i> Detail
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</div>

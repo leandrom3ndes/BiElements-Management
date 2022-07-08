@@ -1,0 +1,40 @@
+<div ng-controller="catList as vm">
+<!-- <div class="row">
+    <div class="input-group mb-5 col-12">
+        <input type="text" class="form-control form-control-lg" ng-keyup="vm.searchClick()" ng-model="vm.searchText" placeholder="Ex: Php" />
+        <div class="input-group-append">
+          <button class="btn btn-danger btn-lg" type="button" ng-click="vm.searchClick()" id="button-addon2">Search</button>
+        </div>
+    </div>
+</div> -->
+
+<div class="row">
+    <div class="col-md-4 book-list" ng-repeat="cat in vm.allCats">
+        <div class="card mb-4 shadow-sm">
+            <img class="img-fluid" src="storage/cats/{{ cat.eng_img }}" />
+            <div class="card-body">
+                <h4><a href="#!/category/{{ cat.eng_id }}">{{ cat.eng_name }}</a></h4>
+                <p class="card-text">{{ cat.eng_desc }}</p>
+                <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group">
+                    <a href="#!/category/{{ cat.eng_id }}" class="btn btn-primary"><i class="fa fa-list"></i> Book List</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Pagination -->
+<div class="row">
+    <div class="col-12">
+        <nav>
+          <ul class="pagination">
+            <li ng-repeat="page in [] | range:vm.pageLinks" ng-click="vm.pageLinkClick(page)" class="page-item">
+                <a class="page-link" href="#!/book-list/page/{{ page }}">{{ page }}</a>
+            </li>
+          </ul>
+        </nav>
+    </div>
+</div>
+</div>

@@ -1,0 +1,33 @@
+<div class="row" ng-controller="memberRegister as mr">
+    <h3 class="border-bottom pb-2 mb-3">Member Register</h3>
+    
+    <table class="table table-bordered">
+        <thead>
+            <tr ng-show="mr.showBool">
+                <td colspan="2" ng-class="mr.resClass">{{ mr.showMsg }}</td>
+            </tr>
+            <tr ng-show="mr.formBool" class="mb-4">
+                <td colspan="2" ng-class="mr.resClass">{{ mr.formMsg }}</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th>Full Name</th>
+                <td><input type="text" class="form-control" placeholder="Enter Full Name" ng-init="mr.full_name=''" ng-model="mr.full_name" /></td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td><input type="text" class="form-control" placeholder="Enter Email" ng-init="mr.email=''" ng-model="mr.email" /></td>
+            </tr>
+            <tr>
+                <th>Password</th>
+                <td><input type="password" class="form-control" placeholder="*****" ng-init="mr.password=''" ng-model="mr.password" /></td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <input type="submit" value="Register" ng-click="mr.regClick()" class="btn btn-dark" />
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

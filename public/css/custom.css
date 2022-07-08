@@ -1,0 +1,58 @@
+.jumbotron {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    margin-bottom: 0;
+    background-color: #fff;
+  }
+  @media (min-width: 768px) {
+    .jumbotron {
+      padding-top: 6rem;
+      padding-bottom: 6rem;
+    }
+  }
+  
+  .jumbotron p:last-child {
+    margin-bottom: 0;
+  }
+  
+  .jumbotron-heading {
+    font-weight: 300;
+  }
+  
+  .jumbotron .container {
+    max-width: 40rem;
+  }
+  
+  footer {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+  
+  footer p {
+    margin-bottom: .25rem;
+  }
+
+  /* angularjs Animation */
+.book-list.ng-enter,
+.book-list.ng-leave,
+.book-list.ng-move {
+  transition: 0.5s linear all;
+}
+
+.book-list.ng-enter,
+.book-list.ng-move {
+  opacity: 0;
+}
+
+.book-list.ng-enter.ng-enter-active,
+.book-list.ng-move.ng-move-active{
+  opacity: 1;
+}
+
+.book-list.ng-leave{
+  opacity: 1;
+}
+
+.book-list.ng-leave.ng-leave-active {
+  opacity: 0;
+}

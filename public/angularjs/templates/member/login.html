@@ -1,0 +1,21 @@
+<div class="row" ng-controller="memberLogin as ml">
+<h3 class="border-bottom pb-2 mb-5">Member Login</h3>
+<table class="table table-bordered">
+    <tr ng-show="ml.error" class="bg-warning">
+        <td colspan="2">Invalid Email/Password</td>
+    </tr>
+    <tr>
+        <th>Email</th>
+        <td><input type="text" class="form-control" placeholder="Enter Email" ng-model="ml.email" /></td>
+    </tr>
+    <tr>
+        <th>Password</th>
+        <td><input type="password" class="form-control" placeholder="*****" ng-model="ml.password" /></td>
+    </tr>
+    <tr>
+        <td colspan="2">
+            <input type="submit" value="Login" ng-click="ml.loginClick()" class="btn btn-dark" />
+        </td>
+    </tr>
+</table>
+</div>
