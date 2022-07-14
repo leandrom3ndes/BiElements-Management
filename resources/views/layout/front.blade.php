@@ -1,8 +1,8 @@
 <!doctype html>
-<html lang="en" ng-app="biElement">
+<html lang="en" ng-app="bielement">
 <head>
 <meta charset="utf-8">
-<title>Book Store</title>
+<title>Bielement Store</title>
 {{--  Font Awesome 4.7  --}}
 <link rel="stylesheet" href="{{ asset('font-awesome-4/css/font-awesome.min.css') }}">
 {{-- Bootstra 4 CSS --}}
@@ -25,13 +25,13 @@
     var appUrl="{{ url('api') }}"
 </script>
 <script src="{{ asset('angularjs/app.js') }}"></script>
-<script src="{{ asset('angularjs/BiMemberController.js') }}"></script>
+<script src="{{ asset('angularjs/memberController.js') }}"></script>
   </head>
   <body>
 <header>
         <nav class="navbar navbar-expand-lg fixed-top navbar-light bg-light shadow-lg">
             <div class="container">
-                <a class="navbar-brand" href="#"><b class="btn btn-danger"><i class="fa fa-book"></i> biElement</b> <small class="text-secondary">Collection of IT Ebooks</small></a>
+                <a class="navbar-brand" href="#"><b class="btn btn-danger"><i class="fa fa-book"></i> bielement</b> <small class="text-secondary">Collection of IT Ebooks</small></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -44,7 +44,7 @@
                             <a class="nav-link" href="#!/engines">Engines</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#!/home">All Books</a>
+                            <a class="nav-link" href="#!/home">All BiElements</a>
                         </li>
                         <li class="nav-item dropdown">
                           <a class="nav-link dropdown-toggle" href="javascript:void(null);" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -69,10 +69,10 @@
       <main role="main" style="margin-top:64px;">
         <section class="jumbotron text-center" style="background:url('{{ asset('imgs/1.jpg') }}') center; border-radius:0px;">
           <div class="container">
-            <h1 class="jumbotron-heading text-white">Welcome to biElement</h1>
+            <h1 class="jumbotron-heading text-white">Welcome to bielement</h1>
             <p class="lead text-white">Here you will get the all latest collection of Computer related ebooks in pdf format.</p>
             <p>
-              <a href="#books" class="btn btn-primary btn-lg my-2"><i class="fa fa-eye"></i> Explore</a>
+              <a href="#bielements" class="btn btn-primary btn-lg my-2"><i class="fa fa-eye"></i> Explore</a>
             </p>
           </div>
         </section>
@@ -89,7 +89,7 @@
           <p class="float-right">
             <a href="#">Back to top</a>
           </p>
-          <p><a href="#!/home">biElement</a> is a place where you can download or make personal collection of your IT Ebooks.</p>
+          <p><a href="#!/home">bielement</a> is a place where you can download or make personal collection of your IT Ebooks.</p>
           <p>Check All IT Ebooks Engines <a href="#!/engines">All Engines</a></p>
         </div>
       </footer>

@@ -1,9 +1,9 @@
 // Profile Controller
-biElement.controller('memberProfile',function($http,$location){
+bielement.controller('memberProfile',function($http,$location){
     var self=this;
     self.memberData='';
     self.collections='';
-    // Get Collection of my books
+    // Get Collection of my bielements
     $http({
         method:'GET',
         url:appUrl+'/member/my_collection'
@@ -25,7 +25,7 @@ biElement.controller('memberProfile',function($http,$location){
     });
 });
 // Login Controller
-biElement.controller('memberLogin',function($http,$location){
+bielement.controller('memberLogin',function($http,$location){
     var self=this;
     self.error=false;
     self.session=false;
@@ -49,20 +49,30 @@ biElement.controller('memberLogin',function($http,$location){
     };
 });
 // Member Logout Contoller
-biElement.controller('memberLogout',function($http,$location){
+bielement.controller('memberLogout',function($http,$location){
     $http({
         method:'GET',
         url:appUrl+'/member/logout'
     }).then(function(response){
-        if(response.data.bool==true){
+        if(response.data.bool===true){
             $location.path('member/login');
-            location.reload();
+            if(typeof(localStorage.getItem('rlcount')) == 'undefined'){
+                localStorage.setItem('rlcount', 0);
+            }
+            if(localStorage.getItem('rlcount') < 2){
+                localStorage.setItem('rlcount', localStorage.getItem('rlcount') + 1);
+                window.location.reload();
+            }else{
+                localStorage.removeItem('rlcount');
+            }
+        }else{
+            self.error=true;
         }
     });
 });
 
 // Register Controller
-biElement.controller('memberRegister',function($http){
+bielement.controller('memberRegister',function($http){
     var self=this;
     self.showMsg=false;
     self.formMsg=false;

@@ -41,8 +41,8 @@ Route::get('admin/logout','BiAdminController@logout');
 Route::post('admin/login','BiAdminController@login_submit');
 Route::get('admin/dashboard','BiAdminController@dashboard');
 
-// ================== Admin Book Route
-Route::get('admin/books','BiAdminElementsController@all');
+// ================== Admin Bielement Route
+Route::get('admin/bielements','BiAdminElementsController@all');
 Route::get('admin/book/add','BiAdminElementsController@add_form');
 Route::post('admin/book/add','BiAdminElementsController@submit_add_form');
 Route::get('admin/book/update/{id}','BiAdminElementsController@edit');

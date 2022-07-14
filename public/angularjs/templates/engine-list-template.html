@@ -11,13 +11,13 @@
 <div class="row">
     <div class="col-md-4 book-list" ng-repeat="cat in vm.allCats">
         <div class="card mb-4 shadow-sm">
-            <img class="img-fluid" src="storage/cats/{{ cat.eng_img }}" />
+            <img class="img-fluid" src="storage/engs/{{ cat.eng_img }}" />
             <div class="card-body">
-                <h4><a href="#!/category/{{ cat.eng_id }}">{{ cat.eng_name }}</a></h4>
+                <h4><a href="#!/engine/{{ cat.eng_id }}">{{ cat.eng_name }}</a></h4>
                 <p class="card-text">{{ cat.eng_desc }}</p>
                 <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
-                    <a href="#!/category/{{ cat.eng_id }}" class="btn btn-primary"><i class="fa fa-list"></i> Book List</a>
+                    <a href="#!/engine/{{ cat.eng_id }}" class="btn btn-primary"><i class="fa fa-list"></i> Bielement List</a>
                     </div>
                 </div>
             </div>

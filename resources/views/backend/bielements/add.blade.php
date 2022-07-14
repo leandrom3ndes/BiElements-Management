@@ -1,9 +1,9 @@
 @extends('layout.admin')
-@section('pageTitle','Add Book')
+@section('pageTitle','Add Bielement')
 @section('content')
 <div class="col-sm-12 mb-4">
-    <h3 class="border-bottom pb-1 mb-2">Add Book
-        <a href="{{ url('admin/books') }}" class="float-right badge badge-success"><i class="fa fa-long-arrow-left"></i> Books</a>
+    <h3 class="border-bottom pb-1 mb-2">Add Bielement
+        <a href="{{ url('admin/bielements') }}" class="float-right badge badge-success"><i class="fa fa-long-arrow-left"></i> BiElements</a>
     </h3>
 </div>
 {{--  DataTable Content Start  --}}
@@ -15,9 +15,9 @@
     {{ csrf_field() }}
     <table class="table table-bordered">
         <tr>
-            <th>Book Engine</th>
+            <th>Bielement Engine</th>
             <td>
-                <select name="book_cat" id="" class="form-control">
+                <select name="bi_eng" id="" class="form-control">
                     <option value="">--- Select Option ---</option>
                     @if(count($engines)>0)
                         @foreach($engines as $cat)
@@ -25,96 +25,96 @@
                         @endforeach
                     @endif
                 </select>
-                @if($errors->has('book_cat'))
-                @foreach($errors->get('book_cat') as $message)
+                @if($errors->has('bi_eng'))
+                @foreach($errors->get('bi_eng') as $message)
                 <p class="p-0 text-danger">{{ $message }}</p>
                 @endforeach
                 @endif
             </td>
         </tr>
         <tr>
-            <th>Book Name</th>
+            <th>Bielement Name</th>
             <td>
-                <input type="text" name="book_name" class="form-control" placeholder="Enter Book Name" />
-                @if($errors->has('book_name'))
-                @foreach($errors->get('book_name') as $message)
+                <input type="text" name="bi_name" class="form-control" placeholder="Enter Bielement Name" />
+                @if($errors->has('bi_name'))
+                @foreach($errors->get('bi_name') as $message)
                 <p class="p-0 text-danger">{{ $message }}</p>
                 @endforeach
             @endif
             </td>
         </tr>
         <tr>
-            <th>Book PDF</th>
+            <th>Bielement type</th>
             <td>
-                <input type="file" name="book_pdf" />
-                @if($errors->has('book_pdf'))
-                @foreach($errors->get('book_pdf') as $message)
-                <p class="p-0 text-danger">{{ $message }}</p>
-                @endforeach
-            @endif
-            </td>
-        </tr>
-        <tr>
-            <th>Book Image</th>
-            <td>
-                <input type="file" name="book_img" />
-                @if($errors->has('book_img'))
-                @foreach($errors->get('book_img') as $message)
+                <input type="text" name="bi_type" class="form-control" placeholder="Enter Bielement Price" />
+                @if($errors->has('bi_type'))
+                @foreach($errors->get('bi_type') as $message)
                 <p class="p-0 text-danger">{{ $message }}</p>
                 @endforeach
                 @endif
             </td>
         </tr>
         <tr>
-            <th>Book Price</th>
+            <th>Bielement Image</th>
             <td>
-                <input type="text" name="book_price" class="form-control" placeholder="Enter Book Price" />
-                @if($errors->has('book_price'))
-                @foreach($errors->get('book_price') as $message)
+                <input type="file" name="bi_cover_img" />
+                @if($errors->has('bi_cover_img'))
+                @foreach($errors->get('bi_cover_img') as $message)
                 <p class="p-0 text-danger">{{ $message }}</p>
                 @endforeach
                 @endif
             </td>
         </tr>
         <tr>
-            <th>Book Author</th>
+            <th>Bielement embed</th>
             <td>
-                <input type="text" name="book_author" class="form-control" placeholder="Enter Book Author" />
-                @if($errors->has('book_author'))
-                @foreach($errors->get('book_author') as $message)
+                <input type="file" name="bi_embed" />
+                @if($errors->has('bi_embed'))
+                @foreach($errors->get('bi_embed') as $message)
                 <p class="p-0 text-danger">{{ $message }}</p>
                 @endforeach
                 @endif
             </td>
         </tr>
         <tr>
-            <th>Book Publisher</th>
+            <th>Bielement base64</th>
             <td>
-                <input type="text" name="book_publisher" class="form-control" placeholder="Enter Book Publisher" />
-                @if($errors->has('book_publisher'))
-                @foreach($errors->get('book_publisher') as $message)
+                <input type="text" name="bi_base64" class="form-control" placeholder="Enter Bielement Author" />
+                @if($errors->has('bi_base64'))
+                @foreach($errors->get('bi_base64') as $message)
                 <p class="p-0 text-danger">{{ $message }}</p>
                 @endforeach
                 @endif
             </td>
         </tr>
         <tr>
-            <th>Book Publish Date</th>
+            <th>Bielement Publisher</th>
             <td>
-                <input type="date" name="book_publish" class="form-control" placeholder="Enter Book Publish Date" />
-                @if($errors->has('book_publish'))
-                @foreach($errors->get('book_publish') as $message)
+                <input type="text" name="bi_creator" class="form-control" placeholder="Enter Bielement Publisher" />
+                @if($errors->has('bi_creator'))
+                @foreach($errors->get('bi_creator') as $message)
                 <p class="p-0 text-danger">{{ $message }}</p>
                 @endforeach
                 @endif
             </td>
         </tr>
         <tr>
-            <th>Book Description</th>
+            <th>Bielement Publish Date</th>
             <td>
-                <textarea name="book_desc" class="form-control" placeholder="Enter Book Description" id="" cols="30" rows="10"></textarea>
-                @if($errors->has('book_desc'))
-                @foreach($errors->get('book_desc') as $message)
+                <input type="date" name="bi_publish_date" class="form-control" placeholder="Enter Bielement Publish Date" />
+                @if($errors->has('bi_publish_date'))
+                @foreach($errors->get('bi_publish_date') as $message)
+                <p class="p-0 text-danger">{{ $message }}</p>
+                @endforeach
+                @endif
+            </td>
+        </tr>
+        <tr>
+            <th>Bielement Description</th>
+            <td>
+                <textarea name="bi_desc" class="form-control" placeholder="Enter Bielement Description" id="" cols="30" rows="10"></textarea>
+                @if($errors->has('bi_desc'))
+                @foreach($errors->get('bi_desc') as $message)
                 <p class="p-0 text-danger">{{ $message }}</p>
                 @endforeach
                 @endif

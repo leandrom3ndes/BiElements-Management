@@ -13,17 +13,17 @@ class CreateBooksTable extends Migration
      */
     public function up()
     {
-        Schema::create('books', function(Blueprint $table){
+        Schema::create('bielements', function(Blueprint $table){
             $table->increments('id');
             $table->integer('eng_id');
-            $table->string('book_name');
-            $table->text('book_desc');
-            $table->string('book_cover_img');
-            $table->string('book_pdf');
-            $table->integer('book_price');
-            $table->string('book_author');
-            $table->string('book_publisher');
-            $table->string('book_publish_date');
+            $table->string('bi_name');
+            $table->text('bi_desc');
+            $table->string('bi_cover_img');
+            $table->string('bi_embed');
+            $table->integer('bi_type');
+            $table->string('bi_base64');
+            $table->string('bi_creator');
+            $table->string('bi_publish_date');
             $table->timestamps();
         });
     }
@@ -35,6 +35,6 @@ class CreateBooksTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('books');
+        Schema::dropIfExists('bielements');
     }
 }

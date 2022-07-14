@@ -66,13 +66,13 @@ class BiMemberController extends Controller
         }
         echo json_encode($res);
     }
-    // Collect Specific Book
+    // Collect Specific Bielement
     function collect(){
         $res=array();
         $request = json_decode(file_get_contents('php://input'));
         $checkCollection=DB::table('my_collection')
         ->where([
-            'book_id'=>$request->book_id,
+            'bi_id'=>$request->bi_id,
             'member_id'=>$request->member_id
         ])->count();
         if($checkCollection>0){
@@ -80,7 +80,7 @@ class BiMemberController extends Controller
         }else{
             $saveCollection=DB::table('my_collection')
             ->insert([
-                'book_id'=>$request->book_id,
+                'bi_id'=>$request->bi_id,
                 'member_id'=>$request->member_id
             ]);
             $res['bool']=true;
@@ -92,7 +92,7 @@ class BiMemberController extends Controller
     function my_collection(){
         $res=array();
         $checkCollection=DB::table('my_collection')
-        ->join('books','my_collection.book_id','=','books.id')
+        ->join('bielements','my_collection.bi_id','=','bielements.id')
         ->where([
             'my_collection.member_id'=>session('memberData')[0]->member_id
         ])->get();

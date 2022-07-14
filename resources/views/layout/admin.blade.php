@@ -19,7 +19,7 @@
     <header>
         <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom shadow-sm">
             <div class="container">
-        <a class="navbar-brand" href="{{ url('admin/dashboard') }}">biElement Admin</a>
+        <a class="navbar-brand" href="{{ url('admin/dashboard') }}">bielement Admin</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -30,11 +30,11 @@
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Books
+                BiElements
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <a class="dropdown-item" href="{{ url('admin/books') }}">All Books</a>
-                    <a class="dropdown-item" href="{{ url('admin/book/add') }}">Add Book</a>
+                    <a class="dropdown-item" href="{{ url('admin/bielements') }}">All BiElements</a>
+                    <a class="dropdown-item" href="{{ url('admin/book/add') }}">Add Bielement</a>
                 </div>
             </li>
             <li class="nav-item dropdown">

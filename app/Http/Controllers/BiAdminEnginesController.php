@@ -43,7 +43,7 @@ class BiAdminEnginesController extends Controller
         // Image
         $image = $request->file('eng_img');
         $imageName=time().'.'.$image->getClientOriginalExtension();
-        $destinationPath = public_path('/storage/cats');
+        $destinationPath = public_path('/storage/engs');
         $image->move($destinationPath, $imageName);
         $cat=new Engine;
         $cat->eng_name=$request->eng_name;
@@ -93,7 +93,7 @@ class BiAdminEnginesController extends Controller
         if($request->hasFile('eng_img')){
             $image = $request->file('eng_img');
             $imageName=time().'.'.$image->getClientOriginalExtension();
-            $destinationPath = public_path('/storage/cats');
+            $destinationPath = public_path('/storage/engs');
             $image->move($destinationPath, $imageName);
         }else{
             $imageName=$request->prev_img;

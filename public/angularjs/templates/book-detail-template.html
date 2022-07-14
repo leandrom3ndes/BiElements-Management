@@ -1,28 +1,28 @@
 <div class="row" ng-controller="bookDetail as bd">
     <div class="col-sm-3">
-        <img class="img-fluid" src="storage/books/{{ bd.bookData.book_cover_img }}" alt="{{ bd.bookData.book_name }}" />
+        <img class="img-fluid" src="storage/bielements/{{ bd.bookData.bi_cover_img }}" alt="{{ bd.bookData.bi_name }}" />
     </div>
     <div class="col-sm-9">
-        <h3 class="mb-3">{{ bd.bookData.book_name }}</h3>
+        <h3 class="mb-3">{{ bd.bookData.bi_name }}</h3>
         <table class="table table-bordered">
             <tr>
                 <th>Description</th>
-                <td>{{ bd.bookData.book_desc }}</td>
+                <td>{{ bd.bookData.bi_desc }}</td>
             </tr>
             <tr>
                 <th>Author</th>
-                <td>{{ bd.bookData.book_author }}</td>
+                <td>{{ bd.bookData.bi_base64 }}</td>
             </tr>
             <tr>
                 <th>Publisher</th>
-                <td>{{ bd.bookData.book_publisher }}</td>
+                <td>{{ bd.bookData.bi_creator }}</td>
             </tr>
             <tr>
                 <th>Release Date</th>
-                <td>{{ bd.bookData.book_publish_date }}</td>
+                <td>{{ bd.bookData.bi_publish_date }}</td>
             </tr>
             <tr>
-                <td><a href="{{ bd.bookData.book_pdf }}" download class="btn btn-success">Download</a></td>
+                <td><a href="{{ bd.bookData.bi_embed }}" download class="btn btn-success">Download</a></td>
                 <td>
                     <button ng-hide="bd.collected" class="btn btn-danger" ng-click="bd.collectBook(bd.bookData.id)"><i class="fa fa-heart"></i> {{ bd.statusText }}</button>
                     <p ng-show="bd.collected">Added in your collection</p>

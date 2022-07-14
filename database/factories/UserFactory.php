@@ -22,18 +22,18 @@ $factory->define(App\User::class, function (Faker $faker) {
     ];
 });
 
-// Demo Books
-$factory->define(App\Book::class, function (Faker $faker) {
+// Demo BiElements
+$factory->define(App\Bielement::class, function (Faker $faker) {
     return [
         'eng_id'=>App\Engine::all()->random()->eng_id,
-        'book_name' => $faker->name,
-        'book_desc' => $faker->realText($maxNbChars = 100, $indexSize = 2),
-        'book_cover_img' => $faker->image('public/storage/books',300, 300, 'technics', false),
-        'book_pdf' =>'1551717426.PDF',
-        'book_price' => $faker->numberBetween(10,100),
-        'book_author' => $faker->name,
-        'book_publisher' => $faker->company,
-        'book_publish_date' => $faker->date($format = 'Y-m-d', $max = 'now')
+        'bi_name' => $faker->name,
+        'bi_desc' => $faker->realText($maxNbChars = 100, $indexSize = 2),
+        'bi_cover_img' => $faker->image('public/storage/bielements',300, 300, 'technics', false),
+        'bi_embed' =>'1551717426.PDF',
+        'bi_type' => $faker->numberBetween(10,100),
+        'bi_base64' => $faker->name,
+        'bi_creator' => $faker->company,
+        'bi_publish_date' => $faker->date($format = 'Y-m-d', $max = 'now')
     ];
 });
 
@@ -42,7 +42,7 @@ $factory->define(App\Engine::class, function (Faker $faker) {
     return [
         'eng_name' => $faker->name,
         'eng_desc' => $faker->realText($maxNbChars = 100, $indexSize = 2),
-        'eng_img' => $faker->image('public/storage/cats',400, 400, 'abstract', false)
+        'eng_img' => $faker->image('public/storage/engs',400, 400, 'abstract', false)
     ];
 });
 

@@ -24,11 +24,11 @@
               <div class="row">
                 <div class="col-sm-3" ng-repeat="collect in md.collections">
                     <div class="card">
-                        <img src="storage/books/{{ collect.book_cover_img }}" class="card-img-top" alt="{{ collect.book_name }}">
+                        <img src="storage/bielements/{{ collect.bi_cover_img }}" class="card-img-top" alt="{{ collect.bi_name }}">
                         <div class="card-body">
-                          <h5 class="card-title">{{ collect.book_name }}</h5>
-                          <p class="card-text">{{ collect.book_desc }}</p>
-                          <a href="#!/bookdetail/{{ collect.book_id }}" class="btn btn-primary">
+                          <h5 class="card-title">{{ collect.bi_name }}</h5>
+                          <p class="card-text">{{ collect.bi_desc }}</p>
+                          <a href="#!/bookdetail/{{ collect.bi_id }}" class="btn btn-primary">
                             <i class="fa fa-eye"></i> Detail
                           </a>
                         </div>

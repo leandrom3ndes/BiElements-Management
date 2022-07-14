@@ -40,7 +40,7 @@
             <th>Engine Image</th>
             <td>
                 <input type="file" name="eng_img" />
-                <img width="100" src="{{ asset('storage/cats/'.$allData->eng_img) }}" alt="">
+                <img width="100" src="{{ asset('storage/engs/'.$allData->eng_img) }}" alt="">
                 <input type="hidden" name="prev_img" value="{{ $allData->eng_img }}">
                 @if($errors->has('eng_img'))
                 @foreach($errors->get('eng_img') as $message)

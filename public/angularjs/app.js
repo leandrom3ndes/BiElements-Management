@@ -1,6 +1,6 @@
-var biElement=angular.module('biElement',['ngRoute','ngAnimate']);
+var bielement=angular.module('bielement',['ngRoute','ngAnimate']);
 // Configuration
-biElement.config(function($routeProvider){
+bielement.config(function($routeProvider){
     $routeProvider
         // Home Page
         .when('/home',{
@@ -12,17 +12,17 @@ biElement.config(function($routeProvider){
             templateUrl:'angularjs/templates/engine-list-template.html',
             controller:'catList'
         })
-        // Book List According to Engine
+        // Bielement List According to Engine
         .when('/engine/:eng_id',{
             templateUrl:'angularjs/templates/book-list-engine.html',
             controller:'bookListCategory'
         })
-        // Book List With Pagination
+        // Bielement List With Pagination
         .when('/book-list/page/:pageNo',{
             templateUrl:'angularjs/templates/book-list-template.html',
             controller:'bookList'
         })
-        // Book Detail
+        // Bielement Detail
         .when('/bookdetail/:bookId',{
             templateUrl:'angularjs/templates/book-detail-template.html',
             controller:'bookDetail'
@@ -53,8 +53,8 @@ biElement.config(function($routeProvider){
         });
 });
 // All Data Controller
-biElement.controller('bookList',function($http,$routeParams){
-    // Get All Books
+bielement.controller('bookList',function($http,$routeParams){
+    // Get All BiElements
     var self=this;
     self.allBooks='';
     self.pageLinks='';
@@ -111,24 +111,24 @@ biElement.controller('bookList',function($http,$routeParams){
 });
 
 // Single Data Controller
-biElement.controller('bookDetail',function($http,$routeParams){
+bielement.controller('bookDetail',function($http,$routeParams){
     var self=this;
     self.allBooks='';
     self.memberData='';
     self.memberLogRes='';
     self.collected=false;
-    // Book Detail
+    // Bielement Detail
     $http({
         method:'POST',
         data:{
-            book_id:$routeParams.bookId
+            bi_id:$routeParams.bookId
         },
         url:appUrl+'/detail'
     }).then(function(response){
         self.bookData=response.data;
     });
     // Collection this book
-    self.collectBook=function(book_id){
+    self.collectBook=function(bi_id){
         // Check User is logged In or Not
         $http({
             method:'GET',
@@ -142,7 +142,7 @@ biElement.controller('bookDetail',function($http,$routeParams){
                 $http({
                     method:'POST',
                     data:{
-                        book_id:book_id,
+                        bi_id:bi_id,
                         member_id:self.memberData.member_id
                     },
                     url:appUrl+'/member/collect'
@@ -160,7 +160,7 @@ biElement.controller('bookDetail',function($http,$routeParams){
 });
 
 // Engine Controller
-biElement.controller('catList',function($http){
+bielement.controller('catList',function($http){
     var self=this;
     self.allCats='';
     $http({
@@ -171,8 +171,8 @@ biElement.controller('catList',function($http){
     });
 });
 
-// Book List Via Engine
-biElement.controller('bookListCategory',function($http,$routeParams){
+// Bielement List Via Engine
+bielement.controller('bookListCategory',function($http,$routeParams){
     var self=this;
     $http({
         method:'GET',
@@ -183,7 +183,7 @@ biElement.controller('bookListCategory',function($http,$routeParams){
 });
 
 // Pagination Filter
-biElement.filter('range', function(){
+bielement.filter('range', function(){
     return function(input, total) {
       total = parseInt(total);
       for (var i=1; i<total; i++)

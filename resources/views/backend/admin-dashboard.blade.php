@@ -8,7 +8,7 @@
 <div class="col-sm-3">
     <div class="card">
         <div class="card-header">
-            <h3><a href="{{ url('admin/books') }}">Books</a> <span class="badge badge-secondary">{{ App\Book::count() }}</span></h3>
+            <h3><a href="{{ url('admin/bielements') }}">BiElements</a> <span class="badge badge-secondary">{{ App\Bielement::count() }}</span></h3>
         </div>
     </div>
 </div>

@@ -27,7 +27,7 @@
                 <tr>
                     <td>{{ $cat->eng_id }}</td>
                     <td>{{ $cat->eng_name }}</td>
-                    <td><img width="100" src="{{ asset('storage/cats/'.$cat->eng_img) }}" alt=""></td>
+                    <td><img width="100" src="{{ asset('storage/engs/'.$cat->eng_img) }}" alt=""></td>
                     <td>
                         <a href="{{ url('admin/engine/update/'.$cat->eng_id) }}" class="btn btn-sm btn-primary"><i class="fa fa-pencil"></i></a>
                         <a onclick="return confirm('Are you sure to delete this?')" href="{{ url('admin/engine/delete/'.$cat->eng_id) }}" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></a>

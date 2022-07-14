@@ -8,13 +8,13 @@
     </div>
 </div>
 
-<div class="row" id="books">
+<div class="row" id="bielements">
     <div class="col-md-4 book-list" ng-repeat="book in vm.allBooks">
         <div class="card mb-4 shadow-sm">
-            <img class="img-fluid" src="storage/books/{{ book.book_cover_img }}" />
+            <img class="img-fluid" src="storage/bielements/{{ book.bi_cover_img }}" />
             <div class="card-body">
-                <h4><a href="#!/bookdetail/{{ book.id }}">{{ book.book_name }}</a></h4>
-                <p class="card-text">{{ book.book_desc }}</p>
+                <h4><a href="#!/bookdetail/{{ book.id }}">{{ book.bi_name }}</a></h4>
+                <p class="card-text">{{ book.bi_desc }}</p>
                 <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
                     <a href="#!/bookdetail/{{ book.id }}" class="btn btn-primary">
