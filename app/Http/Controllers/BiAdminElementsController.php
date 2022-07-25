@@ -32,7 +32,6 @@ class BiAdminElementsController extends Controller
             'bi_type'=>'required',
             'bi_cover_img'=>'required',
             'bi_embed'=>'required',
-            'bi_base64'=>'required',
             'bi_creator'=>'required',
             'bi_publish_date'=>'required',
             'bi_desc'=>'required',
@@ -41,24 +40,23 @@ class BiAdminElementsController extends Controller
         $image = $request->file('bi_cover_img');
         $imageName=time().'.'.$image->getClientOriginalExtension();
         $destinationPath = public_path('/storage/bielements');
+    
+        $imageBase64 = base64_encode(file_get_contents($image));
+
         $image->move($destinationPath, $imageName);
-        // PDF
-        /*$pdf = $request->file('bi_embed');
-        $pdfName=time().'.'.$pdf->getClientOriginalExtension();
-        $pdf->move($destinationPath, $pdfName);*/
-        // Save BiElements
-        $book=new Bielement;
-        $book->eng_id=$request->bi_eng;
-        $book->bi_name=$request->bi_name;
-        $book->bi_type=$request->bi_type;
-        $book->bi_cover_img=$imageName;
-        $book->bi_embed=$request->bi_embed;
-        $book->bi_base64=$request->bi_base64;
-        $book->bi_creator=$request->bi_creator;
-        $book->bi_publish_date=$request->bi_publish_date;
-        $book->bi_desc=$request->bi_desc;
-        $book->save();
-        return redirect('admin/book/add')->with('success','Data has been added.');
+
+        $bielement=new Bielement;
+        $bielement->eng_id=$request->bi_eng;
+        $bielement->bi_name=$request->bi_name;
+        $bielement->bi_type=$request->bi_type;
+        $bielement->bi_cover_img=$imageName;
+        $bielement->bi_embed=$request->bi_embed;
+        $bielement->bi_base64=$imageBase64;
+        $bielement->bi_creator=$request->bi_creator;
+        $bielement->bi_publish_date=$request->bi_publish_date;
+        $bielement->bi_desc=$request->bi_desc;
+        $bielement->save();
+        return redirect('admin/bielement/add')->with('success','Os dados foram adicionados.');
     }
 
     // Edit View
@@ -74,46 +72,50 @@ class BiAdminElementsController extends Controller
             'bi_name'=>'required',
             'bi_type'=>'required',
             'bi_embed'=>'required',
+            'bi_base64'=>'required',
             'bi_creator'=>'required',
             'bi_publish_date'=>'required',
             'bi_desc'=>'required',
         ]);
         // Image
+        $image = $request->file('bi_cover_img');
         if($request->hasFile('bi_cover_img')){
-            $image = $request->file('bi_cover_img');
+            $imageBase64 = base64_encode(file_get_contents($image));
             $imageName=time().'.'.$image->getClientOriginalExtension();
             $destinationPath = public_path('/storage/bielements');
             $image->move($destinationPath, $imageName);
+            $bielement=Bielement::find($id);
+            $bielement->eng_id=$request->bi_eng;
+            $bielement->bi_name=$request->bi_name;
+            $bielement->bi_type=$request->bi_type;
+            $bielement->bi_cover_img=$imageName;
+            $bielement->bi_embed=$request->bi_embed;
+            $bielement->bi_base64=$imageBase64;
+            $bielement->bi_creator=$request->bi_creator;
+            $bielement->bi_publish_date=$request->bi_publish_date;
+            $bielement->bi_desc=$request->bi_desc;
+            $bielement->save();
         }else{
             $imageName=$request->prev_img;
+            // Save BiElements Nop saving previous image
+            $bielement=Bielement::find($id);
+            $bielement->eng_id=$request->bi_eng;
+            $bielement->bi_name=$request->bi_name;
+            $bielement->bi_type=$request->bi_type;
+            $bielement->bi_cover_img=$imageName;
+            $bielement->bi_embed=$request->bi_embed;
+            $bielement->bi_base64=$request->bi_base64;
+            $bielement->bi_creator=$request->bi_creator;
+            $bielement->bi_publish_date=$request->bi_publish_date;
+            $bielement->bi_desc=$request->bi_desc;
+            $bielement->save();
+            
         }
-
-        // PDF
-        /*if($request->hasFile('bi_cover_img')){
-            $pdf = $request->file('bi_embed');
-            $pdfName=time().'.'.$pdf->getClientOriginalExtension();
-            $pdf->move($destinationPath, $pdfName);
-        }else{
-            $pdfName=$request->prev_pdf;
-        }*/
-
-        // Save BiElements
-        $book=Bielement::find($id);
-        $book->eng_id=$request->bi_eng;
-        $book->bi_name=$request->bi_name;
-        $book->bi_type=$request->bi_type;
-        $book->bi_cover_img=$imageName;
-        $book->bi_embed=$request->bi_embed;
-        $book->bi_base64=$request->bi_base64;
-        $book->bi_creator=$request->bi_creator;
-        $book->bi_publish_date=$request->bi_publish_date;
-        $book->bi_desc=$request->bi_desc;
-        $book->save();
-        return redirect('admin/book/update/'.$id)->with('success','Data has been updated.');
+        return redirect('admin/bielement/update/'.$id)->with('success','Os dados foram atualizados.');
     }
     // Delete Data
     function delete($id){
         Bielement::where('id',$id)->delete();
-        return redirect('admin/bielements')->with('success','Data has been deleted.');
+        return redirect('admin/bielements')->with('success','Os dados foram eliminados.');
     }
 }

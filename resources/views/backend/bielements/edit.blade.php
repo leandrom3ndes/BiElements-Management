@@ -11,7 +11,7 @@
     @if(Session::has('success'))
         <p class="alert alert-success">{{ session('success') }}</p>
     @endif
-    <form method="post" action="{{ url('admin/book/update/'.$allData->eng_id) }}" enctype="multipart/form-data">
+    <form method="post" action="{{ url('admin/bielement/update/'.$allData->eng_id) }}" enctype="multipart/form-data">
     {{ csrf_field() }}
     <table class="table table-bordered">
         <tr>
@@ -74,9 +74,7 @@
         <tr>
             <th>Bielement embed</th>
             <td>
-                <input type="file" name="bi_embed" />
-                <input type="hidden" name="bi_embed" value="{{ $allData->bi_embed }}">
-                <img width="100" src="{{ asset('storage/bielements/'.$allData->bi_embed) }}" alt="">
+                <input type="text" value="{{ $allData->bi_embed }}" name="bi_embed" class="form-control" placeholder="Insira o código iframe" />
                 @if($errors->has('bi_embed'))
                 @foreach($errors->get('bi_embed') as $message)
                 <p class="p-0 text-danger">{{ $message }}</p>
@@ -87,7 +85,7 @@
         <tr>
             <th>Bielement base64</th>
             <td>
-                <input type="text" value="{{ $allData->bi_base64 }}" name="bi_base64" class="form-control" placeholder="Enter Bielement Author" />
+                <textarea name="bi_base64" class="form-control" placeholder="Enter Bielement Description" id="" cols="5" rows="5">{{ $allData->bi_base64 }}</textarea>
                 @if($errors->has('bi_base64'))
                 @foreach($errors->get('bi_base64') as $message)
                 <p class="p-0 text-danger">{{ $message }}</p>
@@ -98,7 +96,7 @@
         <tr>
             <th>Bielement Publisher</th>
             <td>
-                <input type="text" value="{{ $allData->bi_creator }}" name="bi_creator" class="form-control" placeholder="Enter Bielement Publisher" />
+                <input type="text" value="{{ $allData->bi_creator }}" name="bi_creator" class="form-control" placeholder="Insira Bielement Publisher" />
                 @if($errors->has('bi_creator'))
                 @foreach($errors->get('bi_creator') as $message)
                 <p class="p-0 text-danger">{{ $message }}</p>
@@ -109,7 +107,7 @@
         <tr>
             <th>Bielement Publish Date</th>
             <td>
-                <input type="date" value="{{ $allData->bi_publish_date }}" name="bi_publish_date" class="form-control" placeholder="Enter Bielement Publish Date" />
+                <input type="date" value="{{ $allData->bi_publish_date }}" name="bi_publish_date" class="form-control" placeholder="Insira Bielement Publish Date" />
                 @if($errors->has('bi_publish_date'))
                 @foreach($errors->get('bi_publish_date') as $message)
                 <p class="p-0 text-danger">{{ $message }}</p>

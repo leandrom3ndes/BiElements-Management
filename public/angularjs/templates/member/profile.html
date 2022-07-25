@@ -1,17 +1,17 @@
 <div class="row" ng-controller="memberProfile as md">
     <div class="col-sm-12">
-        <h3 class="mb-3 border-bottom pb-1">Member Name</h3>
+        <h3 class="mb-3 border-bottom pb-1">Seus dados</h3>
         <nav>
             <div class="nav nav-tabs" id="nav-tab" role="tablist">
-              <a class="nav-item nav-link active" id="nav-home-tab" target="_self" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-home" aria-selected="true">Profile</a>
-              <a class="nav-item nav-link" id="nav-profile-tab" target="_self" data-toggle="tab" href="#nav-collection" role="tab" aria-controls="nav-profile" aria-selected="false">Collection</a>
+              <a class="nav-item nav-link active" id="nav-home-tab" target="_self" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-home" aria-selected="true">Perfil</a>
+              <a class="nav-item nav-link" id="nav-profile-tab" target="_self" data-toggle="tab" href="#nav-collection" role="tab" aria-controls="nav-profile" aria-selected="false">Coleção</a>
             </div>
           </nav>
           <div class="tab-content bg-white" id="nav-tabContent">
             <div class="tab-pane fade show active bg-white pt-2" id="nav-profile" role="tabpanel" aria-labelledby="nav-home-tab">
               <table class="table table-bordered">
                 <tr>
-                  <th>Full Name</th>
+                  <th>Nome</th>
                   <td>{{ md.memberData.member_name }}</td>
                 </tr>
                 <tr>
@@ -28,8 +28,8 @@
                         <div class="card-body">
                           <h5 class="card-title">{{ collect.bi_name }}</h5>
                           <p class="card-text">{{ collect.bi_desc }}</p>
-                          <a href="#!/bookdetail/{{ collect.bi_id }}" class="btn btn-primary">
-                            <i class="fa fa-eye"></i> Detail
+                          <a href="#!/bielementdetail/{{ collect.bi_id }}" class="btn btn-primary">
+                            <i class="fa fa-eye"></i> Detalhe
                           </a>
                         </div>
                     </div>

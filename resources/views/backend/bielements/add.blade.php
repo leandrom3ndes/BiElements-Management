@@ -11,7 +11,7 @@
     @if(Session::has('success'))
         <p class="alert alert-success">{{ session('success') }}</p>
     @endif
-    <form method="post" action="{{ url('admin/book/add') }}" enctype="multipart/form-data">
+    <form method="post" action="{{ url('admin/bielement/add') }}" enctype="multipart/form-data">
     {{ csrf_field() }}
     <table class="table table-bordered">
         <tr>
@@ -20,8 +20,8 @@
                 <select name="bi_eng" id="" class="form-control">
                     <option value="">--- Select Option ---</option>
                     @if(count($engines)>0)
-                        @foreach($engines as $cat)
-                        <option value="{{ $cat->eng_id }}">{{ $cat->eng_name }}</option>
+                        @foreach($engines as $eng)
+                        <option value="{{ $eng->eng_id }}">{{ $eng->eng_name }}</option>
                         @endforeach
                     @endif
                 </select>
@@ -33,20 +33,24 @@
             </td>
         </tr>
         <tr>
-            <th>Bielement Name</th>
+            <th>Bielement Nome</th>
             <td>
                 <input type="text" name="bi_name" class="form-control" placeholder="Enter Bielement Name" />
                 @if($errors->has('bi_name'))
                 @foreach($errors->get('bi_name') as $message)
                 <p class="p-0 text-danger">{{ $message }}</p>
                 @endforeach
-            @endif
+                @endif
             </td>
         </tr>
         <tr>
-            <th>Bielement type</th>
+            <th>Bielement tipo</th>
             <td>
-                <input type="text" name="bi_type" class="form-control" placeholder="Enter Bielement Price" />
+                <select name="bi_type" id="" class="form-control">
+                    <option value="">--- Select Option ---</option>
+                    <option value="Chart">Chart</option>
+                    <option value="Map">Map</option>
+                </select>
                 @if($errors->has('bi_type'))
                 @foreach($errors->get('bi_type') as $message)
                 <p class="p-0 text-danger">{{ $message }}</p>
@@ -55,7 +59,7 @@
             </td>
         </tr>
         <tr>
-            <th>Bielement Image</th>
+            <th>Bielement Imagem</th>
             <td>
                 <input type="file" name="bi_cover_img" />
                 @if($errors->has('bi_cover_img'))
@@ -68,7 +72,7 @@
         <tr>
             <th>Bielement embed</th>
             <td>
-                <input type="file" name="bi_embed" />
+                <input type="text" name="bi_embed" class="form-control" placeholder="Insira o código iframe" />
                 @if($errors->has('bi_embed'))
                 @foreach($errors->get('bi_embed') as $message)
                 <p class="p-0 text-danger">{{ $message }}</p>
@@ -77,18 +81,7 @@
             </td>
         </tr>
         <tr>
-            <th>Bielement base64</th>
-            <td>
-                <input type="text" name="bi_base64" class="form-control" placeholder="Enter Bielement Author" />
-                @if($errors->has('bi_base64'))
-                @foreach($errors->get('bi_base64') as $message)
-                <p class="p-0 text-danger">{{ $message }}</p>
-                @endforeach
-                @endif
-            </td>
-        </tr>
-        <tr>
-            <th>Bielement Publisher</th>
+            <th>Bielement autor</th>
             <td>
                 <input type="text" name="bi_creator" class="form-control" placeholder="Enter Bielement Publisher" />
                 @if($errors->has('bi_creator'))
@@ -99,7 +92,7 @@
             </td>
         </tr>
         <tr>
-            <th>Bielement Publish Date</th>
+            <th>Bielement data de publicação</th>
             <td>
                 <input type="date" name="bi_publish_date" class="form-control" placeholder="Enter Bielement Publish Date" />
                 @if($errors->has('bi_publish_date'))
@@ -110,7 +103,7 @@
             </td>
         </tr>
         <tr>
-            <th>Bielement Description</th>
+            <th>Bielement descrição</th>
             <td>
                 <textarea name="bi_desc" class="form-control" placeholder="Enter Bielement Description" id="" cols="30" rows="10"></textarea>
                 @if($errors->has('bi_desc'))

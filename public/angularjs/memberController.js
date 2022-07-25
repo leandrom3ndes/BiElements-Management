@@ -6,7 +6,7 @@ bielement.controller('memberProfile',function($http,$location){
     // Get Collection of my bielements
     $http({
         method:'GET',
-        url:appUrl+'/member/my_collection'
+        url:appUrl+'/member/member_collection'
     }).then(function(response){
         self.collections=response.data.allData;
         console.log(self.collections);

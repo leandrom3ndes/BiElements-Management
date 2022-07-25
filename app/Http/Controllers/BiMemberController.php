@@ -70,7 +70,7 @@ class BiMemberController extends Controller
     function collect(){
         $res=array();
         $request = json_decode(file_get_contents('php://input'));
-        $checkCollection=DB::table('my_collection')
+        $checkCollection=DB::table('member_collection')
         ->where([
             'bi_id'=>$request->bi_id,
             'member_id'=>$request->member_id
@@ -78,7 +78,7 @@ class BiMemberController extends Controller
         if($checkCollection>0){
             $res['bool']=false;
         }else{
-            $saveCollection=DB::table('my_collection')
+            $saveCollection=DB::table('member_collection')
             ->insert([
                 'bi_id'=>$request->bi_id,
                 'member_id'=>$request->member_id
@@ -89,12 +89,12 @@ class BiMemberController extends Controller
     }
 
     // fetch my collection
-    function my_collection(){
+    function member_collection(){
         $res=array();
-        $checkCollection=DB::table('my_collection')
-        ->join('bielements','my_collection.bi_id','=','bielements.id')
+        $checkCollection=DB::table('member_collection')
+        ->join('bielements','member_collection.bi_id','=','bielements.id')
         ->where([
-            'my_collection.member_id'=>session('memberData')[0]->member_id
+            'member_collection.member_id'=>session('memberData')[0]->member_id
         ])->get();
         $res['allData']=$checkCollection;
         echo json_encode($res);

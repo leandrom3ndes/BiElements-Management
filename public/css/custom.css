@@ -33,26 +33,38 @@
   }
 
   /* angularjs Animation */
-.book-list.ng-enter,
-.book-list.ng-leave,
-.book-list.ng-move {
+.bielement-list.ng-enter,
+.bielement-list.ng-leave,
+.bielement-list.ng-move {
   transition: 0.5s linear all;
 }
 
-.book-list.ng-enter,
-.book-list.ng-move {
+.bielement-list.ng-enter,
+.bielement-list.ng-move {
   opacity: 0;
 }
 
-.book-list.ng-enter.ng-enter-active,
-.book-list.ng-move.ng-move-active{
+.bielement-list.ng-enter.ng-enter-active,
+.bielement-list.ng-move.ng-move-active{
   opacity: 1;
 }
 
-.book-list.ng-leave{
+.bielement-list.ng-leave{
   opacity: 1;
 }
 
-.book-list.ng-leave.ng-leave-active {
+.bielement-list.ng-leave.ng-leave-active {
   opacity: 0;
+}
+
+.bd-modal-dashboards .modal-dialog{
+  display: table;
+  position: relative;
+  margin: 0 auto;
+  top: calc(50% - 24px);
+}
+
+.bd-modal-dashboard .modal-dialog .modal-content{
+  background-color: transparent;
+  border: none;
 }

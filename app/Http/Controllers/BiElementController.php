@@ -17,20 +17,20 @@ class BiElementController extends Controller
     function all(){
         $request = json_decode(file_get_contents('php://input'));
         if(!isset($request->page) || $request->page==1){
-            $limitBooks=DB::table('bielements')
+            $limitbielements=DB::table('bielements')
             ->orderBy('id','desc')
             ->limit(12)
             ->get();
         }else{
             $offset=$request->page*($request->limit);
-            $limitBooks=DB::table('bielements')
+            $limitbielements=DB::table('bielements')
             ->orderBy('id','desc')
             ->offset($offset)
             ->limit($request->limit)
             ->get();
         }
-        $allBooks=DB::table('bielements')->count();
-        return response()->json(['allBooks'=>$limitBooks,'totalBooks'=>$allBooks]);
+        $allbielements=DB::table('bielements')->count();
+        return response()->json(['allbielements'=>$limitbielements,'totalbielements'=>$allbielements]);
     }
 
     // Return JSON for Single Bielement
@@ -44,8 +44,8 @@ class BiElementController extends Controller
     function search(){
         $request = json_decode(file_get_contents('php://input'));
         $search=$request->searchText;
-        $limitBooks = Bielement::where('bi_name','LIKE',"%{$search}%")->orderBy('id','desc')->limit(12)->get();
-        $allBooks = Bielement::where('bi_name','LIKE',"%{$search}%")->count();
-        return response()->json(['allBooks'=>$limitBooks,'totalBooks'=>$allBooks]);
+        $limitbielements = Bielement::where('bi_name','LIKE',"%{$search}%")->orderBy('id','desc')->limit(12)->get();
+        $allbielements = Bielement::where('bi_name','LIKE',"%{$search}%")->count();
+        return response()->json(['allbielements'=>$limitbielements,'totalbielements'=>$allbielements]);
     }
 }

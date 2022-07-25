@@ -34,7 +34,7 @@
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                     <a class="dropdown-item" href="{{ url('admin/bielements') }}">All BiElements</a>
-                    <a class="dropdown-item" href="{{ url('admin/book/add') }}">Add Bielement</a>
+                    <a class="dropdown-item" href="{{ url('admin/bielement/add') }}">Add Bielement</a>
                 </div>
             </li>
             <li class="nav-item dropdown">

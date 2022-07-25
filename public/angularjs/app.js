@@ -4,28 +4,28 @@ bielement.config(function($routeProvider){
     $routeProvider
         // Home Page
         .when('/home',{
-            templateUrl:'angularjs/templates/book-list-template.html',
-            controller:'bookList'
+            templateUrl:'angularjs/templates/bielement-list-template.html',
+            controller:'bielementList'
         })
         // Engine List
         .when('/engines',{
             templateUrl:'angularjs/templates/engine-list-template.html',
-            controller:'catList'
+            controller:'engList'
         })
         // Bielement List According to Engine
         .when('/engine/:eng_id',{
-            templateUrl:'angularjs/templates/book-list-engine.html',
-            controller:'bookListCategory'
+            templateUrl:'angularjs/templates/bielement-list-engine.html',
+            controller:'bielementListEngine'
         })
         // Bielement List With Pagination
-        .when('/book-list/page/:pageNo',{
-            templateUrl:'angularjs/templates/book-list-template.html',
-            controller:'bookList'
+        .when('/bielement-list/page/:pageNo',{
+            templateUrl:'angularjs/templates/bielement-list-template.html',
+            controller:'bielementList'
         })
         // Bielement Detail
-        .when('/bookdetail/:bookId',{
-            templateUrl:'angularjs/templates/book-detail-template.html',
-            controller:'bookDetail'
+        .when('/bielementdetail/:bielementId',{
+            templateUrl:'angularjs/templates/bielement-detail-template.html',
+            controller:'bielementDetail'
         })
         // Member Profile
         .when('/member/profile',{
@@ -53,12 +53,12 @@ bielement.config(function($routeProvider){
         });
 });
 // All Data Controller
-bielement.controller('bookList',function($http,$routeParams){
+bielement.controller('bielementList',function($http,$routeParams){
     // Get All BiElements
     var self=this;
-    self.allBooks='';
+    self.allbielements='';
     self.pageLinks='';
-    self.countBook=0;
+    self.countbielement=0;
     self.pageLinks=0;
     self.maxSize=12;
     self.pageClass='';
@@ -71,9 +71,9 @@ bielement.controller('bookList',function($http,$routeParams){
         },
         url:appUrl+'/all'
     }).then(function(response){
-        self.allBooks=response.data.allBooks;
-        self.countBook=response.data.totalBooks;
-        self.pageLinks=Math.ceil(self.countBook/self.maxSize);
+        self.allbielements=response.data.allbielements;
+        self.countbielement=response.data.totalbielements;
+        self.pageLinks=Math.ceil(self.countbielement/self.maxSize);
         self.currentPage=$routeParams.pageNo;
     });
 
@@ -86,8 +86,8 @@ bielement.controller('bookList',function($http,$routeParams){
             },
             url:appUrl+'/search'
         }).then(function(response){
-            self.allBooks=response.data.allBooks;
-            self.countBook=response.data.countAll;
+            self.allbielements=response.data.allbielements;
+            self.countbielement=response.data.countAll;
         });
     };
 
@@ -101,9 +101,9 @@ bielement.controller('bookList',function($http,$routeParams){
             },
             url:appUrl+'/all'
         }).then(function(response){
-            self.allBooks=response.data.allBooks;
-            self.countBook=response.data.totalBooks;
-            self.pageLinks=Math.ceil(self.countBook/self.maxSize);
+            self.allbielements=response.data.allbielements;
+            self.countbielement=response.data.totalbielements;
+            self.pageLinks=Math.ceil(self.countbielement/self.maxSize);
             self.currentPage=$routeParams.pageNo;
         });
     };
@@ -111,9 +111,9 @@ bielement.controller('bookList',function($http,$routeParams){
 });
 
 // Single Data Controller
-bielement.controller('bookDetail',function($http,$routeParams){
+bielement.controller('bielementDetail',function($http,$routeParams){
     var self=this;
-    self.allBooks='';
+    self.allbielements='';
     self.memberData='';
     self.memberLogRes='';
     self.collected=false;
@@ -121,14 +121,14 @@ bielement.controller('bookDetail',function($http,$routeParams){
     $http({
         method:'POST',
         data:{
-            bi_id:$routeParams.bookId
+            bi_id:$routeParams.bielementId
         },
         url:appUrl+'/detail'
     }).then(function(response){
-        self.bookData=response.data;
+        self.bielementData=response.data;
     });
-    // Collection this book
-    self.collectBook=function(bi_id){
+    // Collection this bielement
+    self.collectbielement=function(bi_id){
         // Check User is logged In or Not
         $http({
             method:'GET',
@@ -136,7 +136,7 @@ bielement.controller('bookDetail',function($http,$routeParams){
         }).then(function(response){
             if(response.data.bool==false){
                 self.memberLogRes='You are not loggedIn';
-                alert('You are not loggedIn!! Please Login to collect this ebook.');
+                alert('Necessita de fazer login para colecionar este BI Element.');
             }else{
                 self.memberData=response.data.memberData[0];
                 $http({
@@ -151,7 +151,7 @@ bielement.controller('bookDetail',function($http,$routeParams){
                         self.collected=true;
                     }else{
                         self.collected=false;
-                        alert('Already in Your Collection');
+                        alert('Já se encontra na sua coleção.');
                     }
                 });
             }
@@ -160,7 +160,7 @@ bielement.controller('bookDetail',function($http,$routeParams){
 });
 
 // Engine Controller
-bielement.controller('catList',function($http){
+bielement.controller('engList',function($http){
     var self=this;
     self.allCats='';
     $http({
@@ -172,13 +172,13 @@ bielement.controller('catList',function($http){
 });
 
 // Bielement List Via Engine
-bielement.controller('bookListCategory',function($http,$routeParams){
+bielement.controller('bielementListEngine',function($http,$routeParams){
     var self=this;
     $http({
         method:'GET',
         url:appUrl+'/engine/'+$routeParams.eng_id
     }).then(function(response){
-        self.bookData=response.data;
+        self.bielementData=response.data;
     });
 });
 
@@ -191,3 +191,4 @@ bielement.filter('range', function(){
       return input;
     };
 });
+

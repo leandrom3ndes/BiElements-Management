@@ -14,15 +14,15 @@ class BiEngineController extends Controller
 
     // Return JSON for all BiElements
     function engine($eng_id){
-        $limitBooks=DB::table('bielements')
+        $limitbielements=DB::table('bielements')
         ->where('eng_id',$eng_id)
         ->get();
         $catDetail=DB::table('engines')
         ->where('eng_id',$eng_id)
         ->get();
-        $allBooks=DB::table('bielements')
+        $allbielements=DB::table('bielements')
         ->where('eng_id',$eng_id)
         ->count();
-        return response()->json(['allBooks'=>$limitBooks,'totalBooks'=>$allBooks,'eng_name'=>$catDetail[0]->eng_name]);
+        return response()->json(['allbielements'=>$limitbielements,'totalbielements'=>$allbielements,'eng_name'=>$catDetail[0]->eng_name]);
     }
 }

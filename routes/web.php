@@ -29,7 +29,7 @@ Route::get('api/engine/{eng_id}','BiEngineController@engine');
 // Member Controller
 Route::post('api/member/login','BiMemberController@member_login');
 Route::post('api/member/collect','BiMemberController@collect');
-Route::get('api/member/my_collection','BiMemberController@my_collection');
+Route::get('api/member/member_collection','BiMemberController@member_collection');
 Route::post('api/member/register','BiMemberController@member_register');
 Route::get('api/member/check_session','BiMemberController@check_session');
 Route::get('api/member/logout','BiMemberController@member_logout');
@@ -43,11 +43,11 @@ Route::get('admin/dashboard','BiAdminController@dashboard');
 
 // ================== Admin Bielement Route
 Route::get('admin/bielements','BiAdminElementsController@all');
-Route::get('admin/book/add','BiAdminElementsController@add_form');
-Route::post('admin/book/add','BiAdminElementsController@submit_add_form');
-Route::get('admin/book/update/{id}','BiAdminElementsController@edit');
-Route::post('admin/book/update/{id}','BiAdminElementsController@update');
-Route::get('admin/book/delete/{id}','BiAdminElementsController@delete');
+Route::get('admin/bielement/add','BiAdminElementsController@add_form');
+Route::post('admin/bielement/add','BiAdminElementsController@submit_add_form');
+Route::get('admin/bielement/update/{id}','BiAdminElementsController@edit');
+Route::post('admin/bielement/update/{id}','BiAdminElementsController@update');
+Route::get('admin/bielement/delete/{id}','BiAdminElementsController@delete');
 
 // ================== Admin Engine Route
 Route::get('admin/engines','BiAdminEnginesController@index');
