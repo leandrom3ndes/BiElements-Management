@@ -60,41 +60,20 @@ bielement.controller('knowageLogin',function($http){
     };
 
     self.knowageEmbed=function(){
-
-        var html = Sbi.sdk.api.getDocumentHtml({
+        Sbi.sdk.api.injectDocument({
             documentLabel: 'Foodmart'
             , documentName: 'Foodmart'
             , executionRole: '/spagobi/user'
-            , parameters: {par: 'test', par2: 'test2'}
-            , displayToolbar: true
-            , canResetParameters: false
-            , iframe: {
-                height: '500px'
-                , width: '100%'
-                , style: 'border: 0px; input:focus{outline: none !important;}'
-            }
-        });
-        var dashboard = document.getElementById('targetDiv');
-        dashboard.style.display = "inline";
-        dashboard.innerHTML = html;
-        //document.getElementById('targetDiv').innerHTML = html;
-    };
-
-    /*
-        Sbi.sdk.api.injectDocument({
-            documentLabel: 'DEMO_Report'
-            , documentName: 'Store Sales Analysis'
-            , executionRole: '/spagobi/user'
-            , parameters: {par: 'test', par2: 'test2'}
             , displayToolbar: true
             , canResetParameters: true
+            , displaySliders: true
             , target: 'targetDiv'
             , iframe: {
-                style: 'border: 0px; height:100vh; width:100%; input:focus{outline: none !important;}'
+                style: 'border: 0px; height:100vh; width:100%;'
             }
             , useExtUI: true
         });
-    };*/
+    };
 
     self.knowageGetDataSetList=function(){
         Sbi.sdk.cors.api.getDataSetList({
@@ -112,7 +91,7 @@ bielement.controller('knowageLogin',function($http){
 
     self.knowageExecuteDataSet=function(){
         Sbi.sdk.cors.api.executeDataSet({
-            datasetLabel: 'DEMO_Report'
+            datasetLabel: 'FOODMART_SALES'
             , callbackOk: function(obj) {
                 var str = "<th>Id</th>";
                 
