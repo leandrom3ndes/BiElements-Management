@@ -1,0 +1,129 @@
+<div class="row" id="authentication" ng-controller="knowageLogin as kL">
+    <h3 class="border-bottom pb-2 mb-5">Knowage Login</h3>
+    <table class="table table-bordered" >
+        <tr ng-show="kL.showBool">
+            <td colspan="2" ng-class="kL.resClass">{{ kL.showMsg }}</td>
+        </tr>
+        <tr ng-show="kL.formBool" class="mb-4">
+            <td colspan="2" ng-class="kL.resClass">{{ kL.formMsg }}</td>
+        </tr>
+        <tr>
+            <th>Nome</th>
+            <td><input type="text" id="knowageName" class="form-control" placeholder="Insira o seu nome no knowage" ng-init="kL.knowageName=''" ng-model="kL.knowageName"/></td>
+        </tr>
+        <tr>
+            <th>Palavra-passe</th>
+            <td><input type="password" id="knowagePass" class="form-control" placeholder="*****" ng-init="kL.knowagePass=''" ng-model="kL.knowagePass" /></td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <input type="submit" value="Login" ng-click="kL.knowageAuth()" class="btn btn-dark" />
+            </td>
+        </tr>
+    </table>
+</div>
+
+<div class="row" id="knowageEmbed" style="display:none" ng-controller="knowageLogin as kD">
+    <div class="col-sm-9">
+        <h3 class="mb-3">Knowage Dashboard</h3>
+        <table class="table table-bordered">
+            <tr>
+                <th>Dashboard</th>
+                <td>
+                    <!-- Modal Knowage Embed-->
+                    <div class="modal fade kD-modal-dashboards" id="embedKnowageModal" tabindex="-1" role="dialog" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered modal-xl d-flex justify-content-center" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLongTitle">Knowage Foodmart Embed</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                                </div>
+                                <div class="modal-body">
+                                    <div id='targetDiv' style="input:focus{outline: none !important;}"></div>
+                                </div>
+                                <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Modal Knowage Embed-->
+                    <button type="button" class="btn btn-primary" ng-click="kD.knowageEmbed()" data-toggle="modal" data-target="#embedKnowageModal">
+                        Abrir
+                    </button>
+                </td>
+            </tr>
+            <tr>
+                <th>Lista de Datasets</th>
+                <td>
+                    <!-- Modal Dataset List-->
+                    <div class="modal fade kD-modal-dashboards" id="datasetListKnowageModal" tabindex="-1" role="dialog" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered modal-xl d-flex justify-content-center" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLongTitle">Lista de Datasets</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                                </div>
+                                <div class="modal-body">
+                                    <table>
+                                        <th>Label</th>
+                                        <th>Name</th>
+                                        <th>Description</th>
+                                        
+                                        <tbody id="knowageDatasetsList">
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Modal Dataset List-->
+                    <button type="button" class="btn btn-secondary" ng-click="kD.knowageGetDataSetList()" data-toggle="modal" data-target="#datasetListKnowageModal">
+                        Abrir
+                    </button>
+                </td>
+            </tr>
+            <tr>
+                <th>Conteudo do Dataset</th>
+                <td>
+                    <!-- Modal Dataset List-->
+                    <div class="modal fade kD-modal-dashboards" id="datasetKnowageModal" tabindex="-1" role="dialog" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered modal-xl d-flex justify-content-center" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLongTitle">Visualizar Dataset</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                                </div>
+                                <div class="modal-body">
+                                    <table id="knowageDataset"></table>
+                                </div>
+                                <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Modal Dataset List-->
+                    <button type="button" class="btn btn-secondary" ng-click="kD.knowageExecuteDataSet()" data-toggle="modal" data-target="#datasetKnowageModal">
+                        Abrir
+                    </button>
+                </td>
+            </tr>
+            <tr>
+                <th>Data de criação</th>
+                <td>Data de Publicação</td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+

@@ -1,25 +1,22 @@
-<div class="row" ng-controller="bielementDetail as bd">
-    <div class="col-sm-3">
-        <img class="img-fluid" src="storage/bielements/{{ bd.bielementData.bi_cover_img }}" alt="{{ bd.bielementData.bi_name }}" />
-    </div>
+<div class="row" ng-controller="knowageDetail as kD">
     <div class="col-sm-9">
-        <h3 class="mb-3">{{ bd.bielementData.bi_name }}</h3>
+        <h3 class="mb-3">Knowage Dashboard</h3>
         <table class="table table-bordered">
             <tr>
                 <th>Descrição</th>
-                <td>{{ bd.bielementData.bi_desc }}</td>
+                <td></td>
             </tr>
             <tr>
                 <th>Tipo</th>
-                <td>{{ bd.bielementData.bi_type }}</td>
+                <td></td>
             </tr>
             <tr>
                 <th>Criador</th>
-                <td>{{ bd.bielementData.bi_creator }}</td>
+                <td></td>
             </tr>
             <tr>
                 <th>Data de criação</th>
-                <td>{{ bd.bielementData.bi_publish_date }}</td>
+                <td></td>
             </tr>
             <tr>
                 <td>
@@ -28,13 +25,13 @@
                         <div class="modal-dialog modal-dialog-centered modal-xl d-flex justify-content-center" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLongTitle">{{ bd.bielementData.bi_name }}</h5>
+                                <h5 class="modal-title" id="exampleModalLongTitle">TESTE</h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                                 </div>
                                 <div class="modal-body">
-                                    <object data="{{ bd.bielementData.bi_embed }}" height="500px" width="100%" type="text/html"></object>
+                                    <div height="300px" style="display:none" width="800px" id='targetDiv'></div>
                                 </div>
                                 <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
@@ -43,13 +40,11 @@
                         </div>
                     </div>
                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
-                        Visualizar
+                        Abrir
                     </button>
                     
                     </td>
                 <td>
-                    <button ng-hide="bd.collected" class="btn btn-danger" ng-click="bd.collectbielement(bd.bielementData.id)"><i class="fa fa-heart"></i> {{ bd.statusText }}</button>
-                    <p ng-show="bd.collected">Adicionado à sua coleção.</p>
                 </td>
             </tr>
         </table>

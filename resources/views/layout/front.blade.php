@@ -26,12 +26,15 @@
 </script>
 <script src="{{ asset('angularjs/app.js') }}"></script>
 <script src="{{ asset('angularjs/memberController.js') }}"></script>
+<script src="{{ asset('angularjs/sbisdk-all-production.js') }}"></script>
+<script src="{{ asset('angularjs/knowageController.js') }}"></script>
+
   </head>
   <body>
 <header>
         <nav class="navbar navbar-expand-lg fixed-top navbar-light bg-light shadow-lg">
             <div class="container">
-                <a class="navbar-brand" href="#"><b class="btn btn-danger"><i class="fa fa-bielement"></i> bielement</b> <small class="text-secondary">Coleção de elementos BI</small></a>
+                <a class="navbar-brand" href="#"><b class="btn btn-danger"><i class="fa fa-dashboard"></i> BI Elements</b> <small class="text-secondary">Sistema de Gestão de elementos <strong> Business Intelligence </strong></small></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -44,7 +47,10 @@
                             <a class="nav-link" href="#!/engines">Engines</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#!/home">BiElements</a>
+                            <a class="nav-link" href="#!/home">BI Elements</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#!/knowage">Knowage</a>
                         </li>
                         <li class="nav-item dropdown">
                           <a class="nav-link dropdown-toggle" href="javascript:void(null);" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -67,14 +73,8 @@
 </header>
       
       <main role="main" style="margin-top:64px;">
-        <section class="jumbotron text-center" style="background:url('{{ asset('imgs/1.jpg') }}') center; border-radius:0px;">
-          <div class="container">
-            <h1 class="jumbotron-heading text-white">Bem vindo ao gestor de elementos BI</h1>
-            <p class="lead text-white">Esta aplicação permite gerir os seus elementos de Business Intelligence e encontra-se integrada com o Knowage.</p>
-            <p>
-              <a href="#bielements" class="btn btn-primary btn-lg my-2"><i class="fa fa-eye"></i> BI Elements</a>
-            </p>
-          </div>
+        <section class="jumbotron text-center">
+        <object data="https://demo.knowage-suite.com/knowage/public/servlet/AdapterHTTP?ACTION_NAME=EXECUTE_DOCUMENT_ACTION&OBJECT_LABEL=Sales%20analysis&TOOLBAR_VISIBLE=false&ORGANIZATION=DEMO&NEW_SESSION=true&PARAMETERS=hidden%3D%26hidden_field_visible_description%3D" height="500px" width="100%" type="text/html"></object>
         </section>
       
         <div class="album py-5 bg-light">
@@ -86,11 +86,8 @@
       
       <footer class="text-muted">
         <div class="container">
-          <p class="float-right">
-            <a href="#">Back to top</a>
-          </p>
-          <p><a href="#!/home">BI Element</a> permite gerir os seus elementos de Business Intelligence e encontra-se integrada com o Knowage.</p>
-          <p>Explore todos os <a href="#!/engines">engines integrados.</a></p>
+          <p><a href="#!/home">BI Element Management</a> permite gerir os seus elementos de Business Intelligence e encontra-se integrada com o <a href="#!/knowage"> Knowage</a>.</p>
+          <p>Explore todos os outros<a href="#!/engines"> engines</a>.</p>
         </div>
       </footer>
 </body>

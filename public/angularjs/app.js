@@ -47,6 +47,16 @@ bielement.config(function($routeProvider){
             templateUrl:'angularjs/templates/member/register.html',
             controller:'memberRegister'
         })
+        // Knowage Login
+        .when('/knowage',{
+            templateUrl:'angularjs/templates/knowage/knowage-Login.html',
+            controller:'knowageLogin'
+        })
+        // Knowage Detail
+        .when('/knowageDetails',{
+            templateUrl:'angularjs/templates/knowage/knowage-detail-template.html',
+            controller:'knowageDetail'
+        })
         // Default
         .otherwise({
             redirectTo:'/home'

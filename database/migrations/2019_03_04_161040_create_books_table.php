@@ -18,10 +18,10 @@ class CreatebielementsTable extends Migration
             $table->integer('eng_id');
             $table->string('bi_name');
             $table->text('bi_desc');
+            $table->string('bi_type');
             $table->string('bi_cover_img');
-            $table->string('bi_embed');
-            $table->integer('bi_type');
-            $table->string('bi_base64');
+            $table->longText('bi_embed');
+            $table->longText('bi_base64');
             $table->string('bi_creator');
             $table->string('bi_publish_date');
             $table->timestamps();
