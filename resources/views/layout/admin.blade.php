@@ -19,22 +19,31 @@
     <header>
         <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom shadow-sm">
             <div class="container">
-        <a class="navbar-brand" href="{{ url('admin/dashboard') }}">bielement Admin</a>
+        <a class="navbar-brand" href="{{ url('admin/dashboard') }}">Admin dashboard</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav ml-auto">
             <li class="nav-item active">
-                <a class="nav-link" target="_blank" href="{{ url('/') }}">Front View</a>
+                <a class="nav-link" target="_blank" href="{{ url('/') }}">Vista de utilizador</a>
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 BiElements
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <a class="dropdown-item" href="{{ url('admin/bielements') }}">All BiElements</a>
-                    <a class="dropdown-item" href="{{ url('admin/bielement/add') }}">Add Bielement</a>
+                    <a class="dropdown-item" href="{{ url('admin/bielements') }}">Ver BiElements</a>
+                    <a class="dropdown-item" href="{{ url('admin/bielement/add') }}">Adicionar Bielement</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Knowage
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <a class="dropdown-item" href="{{ url('admin/knowage') }}">Ver documentos</a>
+                    <a class="dropdown-item" href="{{ url('admin/knowage/add') }}">Adicionar documento</a>
                 </div>
             </li>
             <li class="nav-item dropdown">
@@ -42,12 +51,12 @@
                 Engines
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <a class="dropdown-item" href="{{ url('admin/engines') }}">All Engines</a>
-                    <a class="dropdown-item" href="{{ url('admin/engine/add') }}">Add Engine</a>
+                    <a class="dropdown-item" href="{{ url('admin/engines') }}">Ver Engines</a>
+                    <a class="dropdown-item" href="{{ url('admin/engine/add') }}">Adicionar Engine</a>
                 </div>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{ url('admin/logout') }}">Logout</a>
+                <a class="nav-link" href="{{ url('admin/logout') }}">Sair</a>
             </li>
             </ul>
         </div>

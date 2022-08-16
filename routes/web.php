@@ -17,10 +17,15 @@
 
 Route::get('/','BiElementController@index');
 
-// Api For Data
+// Api For Data BiElement
 Route::post('/api/all','BiElementController@all');
 Route::post('/api/detail','BiElementController@detail');
 Route::post('/api/search','BiElementController@search');
+
+// Api For Data Knowage
+Route::post('/api/knowage/all','BiKnowageController@all');
+Route::post('/api/knowage/detail','BiKnowageController@detail');
+Route::post('/api/knowage/search','BiKnowageController@search');
 
 // For Engine
 Route::get('api/engines','BiEngineController@all');
@@ -33,7 +38,6 @@ Route::get('api/member/member_collection','BiMemberController@member_collection'
 Route::post('api/member/register','BiMemberController@member_register');
 Route::get('api/member/check_session','BiMemberController@check_session');
 Route::get('api/member/logout','BiMemberController@member_logout');
-
 
 // ================== Admin Route
 Route::get('admin/login','BiAdminController@login');
@@ -48,6 +52,14 @@ Route::post('admin/bielement/add','BiAdminElementsController@submit_add_form');
 Route::get('admin/bielement/update/{id}','BiAdminElementsController@edit');
 Route::post('admin/bielement/update/{id}','BiAdminElementsController@update');
 Route::get('admin/bielement/delete/{id}','BiAdminElementsController@delete');
+
+// ================== Admin Knowage Route
+Route::get('admin/knowage','BiAdminKnowageController@index');
+Route::get('admin/knowage/add','BiAdminKnowageController@create');
+Route::post('admin/knowage/add','BiAdminKnowageController@store');
+Route::get('admin/knowage/update/{id}','BiAdminKnowageController@edit');
+Route::post('admin/knowage/update/{id}','BiAdminKnowageController@update');
+Route::get('admin/knowage/delete/{id}','BiAdminKnowageController@destroy');
 
 // ================== Admin Engine Route
 Route::get('admin/engines','BiAdminEnginesController@index');

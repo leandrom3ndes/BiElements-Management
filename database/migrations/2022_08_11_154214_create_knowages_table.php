@@ -37,6 +37,6 @@ class CreateKnowagesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('knowages');
+        Schema::dropIfExists('knowage');
     }
 }

@@ -15,6 +15,13 @@
 <div class="col-sm-3">
     <div class="card">
         <div class="card-header">
+            <h3><a href="{{ url('admin/knowage') }}">Knowage</a> <span class="badge badge-secondary">{{ App\Knowage::count() }}</span></h3>
+        </div>
+    </div>
+</div>
+<div class="col-sm-3">
+    <div class="card">
+        <div class="card-header">
             <h3><a href="{{ url('admin/engines') }}">Engines</a> <span class="badge badge-secondary">{{ App\Engine::count() }}</span></h3>
         </div>
     </div>

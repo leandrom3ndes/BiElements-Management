@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Engine;
+
 class BiAdminEnginesController extends Controller
 {
     /**
@@ -50,7 +51,7 @@ class BiAdminEnginesController extends Controller
         $cat->eng_desc=$request->eng_desc;
         $cat->eng_img=$imageName;
         $cat->save();
-        return redirect('admin/engine/add')->with('success','Data has been added.');
+        return redirect('admin/engine/add')->with('success','Engine adicionado com sucesso.');
     }
 
     /**
@@ -103,7 +104,7 @@ class BiAdminEnginesController extends Controller
         $cat->eng_desc=$request->eng_desc;
         $cat->eng_img=$imageName;
         $cat->save();
-        return redirect('admin/engine/update/'.$id)->with('success','Data has been updated.');
+        return redirect('admin/engine/update/'.$id)->with('success','Engine atualizado com sucesso.');
     }
 
     /**

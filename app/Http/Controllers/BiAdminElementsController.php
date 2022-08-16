@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\DB;
 use App\Bielement;
 use App\Engine;
+
 class BiAdminElementsController extends Controller
 {
     // Get All BiElements
@@ -56,7 +57,7 @@ class BiAdminElementsController extends Controller
         $bielement->bi_publish_date=$request->bi_publish_date;
         $bielement->bi_desc=$request->bi_desc;
         $bielement->save();
-        return redirect('admin/bielement/add')->with('success','Os dados foram adicionados.');
+        return redirect('admin/bielement/add')->with('success','Bi Element adicionado com sucesso.');
     }
 
     // Edit View
@@ -111,7 +112,7 @@ class BiAdminElementsController extends Controller
             $bielement->save();
             
         }
-        return redirect('admin/bielement/update/'.$id)->with('success','Os dados foram atualizados.');
+        return redirect('admin/bielement/update/'.$id)->with('success','Bi Element atualizado com sucesso.');
     }
     // Delete Data
     function delete($id){
