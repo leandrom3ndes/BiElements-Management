@@ -73,9 +73,9 @@
 </header>
       
       <main role="main" style="margin-top:64px;">
-        <section class="jumbotron text-center">
+        <!--<section class="jumbotron text-center">
         <object data="https://demo.knowage-suite.com/knowage/public/servlet/AdapterHTTP?ACTION_NAME=EXECUTE_DOCUMENT_ACTION&OBJECT_LABEL=Sales%20analysis&TOOLBAR_VISIBLE=false&ORGANIZATION=DEMO&NEW_SESSION=true&PARAMETERS=hidden%3D%26hidden_field_visible_description%3D" height="500px" width="100%" type="text/html"></object>
-        </section>
+        </section>-->
       
         <div class="album py-5 bg-light">
           <div class="container">

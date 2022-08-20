@@ -3,7 +3,7 @@ bielement.controller('memberProfile',function($http,$location){
     var self=this;
     self.memberData='';
     self.collections='';
-    // Get Collection of my bielements
+    // Get Collection of bielements
     $http({
         method:'GET',
         url:appUrl+'/member/member_collection'
@@ -80,7 +80,7 @@ bielement.controller('memberRegister',function($http){
     self.formBool=false;
     self.regClick=function(){
         if(self.full_name=='' || self.email=='' || self.password==''){
-            self.formMsg='Please enter all Fields!!';
+            self.formMsg='Por favor insira todos os campos!';
             self.resClass='alert alert-warning';
             self.formBool=true;
         }else{

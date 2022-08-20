@@ -9,12 +9,7 @@ use App\Knowage;
 
 class BiKnowageController extends Controller
 {
-    // Home Page
-    function index(){
-        return view('front.index');
-    }
-
-    // Return JSON for all BiElements
+    // Return JSON for all Knowage elements
     function all(){
         $request = json_decode(file_get_contents('php://input'));
         if(!isset($request->page) || $request->page==1){
@@ -31,14 +26,14 @@ class BiKnowageController extends Controller
             ->get();
         }
         $allknowage=DB::table('knowages')->count();
-        return response()->json(['allbielements'=>$limitknowage,'totalbielements'=>$allknowage]);
+        return response()->json(['allknowage'=>$limitknowage,'totalknowage'=>$allknowage]);
     }
 
     // Return JSON for Single Knowage
     function detail(){
         $request = json_decode(file_get_contents('php://input'));
-        $knowage=Knowage::find($request->bi_id);
-        return response()->json($knowage);
+        $knowages=Knowage::find($request->knowage_id);
+        return response()->json($knowages);
     }
 
     // Search BiElements
@@ -47,6 +42,7 @@ class BiKnowageController extends Controller
         $search=$request->searchText;
         $limitknowage = Knowage::where('documentName','LIKE',"%{$search}%")->orderBy('id','desc')->limit(12)->get();
         $allknowage = Knowage::where('documentName','LIKE',"%{$search}%")->count();
-        return response()->json(['allbielements'=>$limitknowage,'totalbielements'=>$allknowage]);
+        return response()->json(['allknowage'=>$limitknowage,'totalknowage'=>$allknowage]);
     }
+
 }

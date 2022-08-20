@@ -18,16 +18,16 @@
 Route::get('/','BiElementController@index');
 
 // Api For Data BiElement
-Route::post('/api/all','BiElementController@all');
-Route::post('/api/detail','BiElementController@detail');
-Route::post('/api/search','BiElementController@search');
+Route::post('/api/bielement/all','BiElementController@all');
+Route::post('/api/bielement/detail','BiElementController@detail');
+Route::post('/api/bielement/search','BiElementController@search');
 
 // Api For Data Knowage
 Route::post('/api/knowage/all','BiKnowageController@all');
 Route::post('/api/knowage/detail','BiKnowageController@detail');
 Route::post('/api/knowage/search','BiKnowageController@search');
 
-// For Engine
+// Api For Engine
 Route::get('api/engines','BiEngineController@all');
 Route::get('api/engine/{eng_id}','BiEngineController@engine');
 

@@ -27,6 +27,21 @@ bielement.config(function($routeProvider){
             templateUrl:'angularjs/templates/bielement-detail-template.html',
             controller:'bielementDetail'
         })
+        // Knowage Login
+        .when('/knowagelogin',{
+            templateUrl:'angularjs/templates/knowage/knowage-Login.html',
+            controller:'knowageLogin'
+        })
+        // Knowage Detail
+        .when('/knowage',{
+            templateUrl:'angularjs/templates/knowage/knowage-list-teamplate.html',
+            controller:'knowageList'
+        })
+        // Knowage Detail
+        .when('/knowagedetail/:knowageDocId',{
+            templateUrl:'angularjs/templates/knowage/knowage-detail-template.html',
+            controller:'knowageDetail'
+        })
         // Member Profile
         .when('/member/profile',{
             templateUrl:'angularjs/templates/member/profile.html',
@@ -46,16 +61,6 @@ bielement.config(function($routeProvider){
         .when('/member/register',{
             templateUrl:'angularjs/templates/member/register.html',
             controller:'memberRegister'
-        })
-        // Knowage Login
-        .when('/knowage',{
-            templateUrl:'angularjs/templates/knowage/knowage-Login.html',
-            controller:'knowageLogin'
-        })
-        // Knowage Detail
-        .when('/knowageDetails',{
-            templateUrl:'angularjs/templates/knowage/knowage-detail-template.html',
-            controller:'knowageDetail'
         })
         // Default
         .otherwise({
@@ -79,7 +84,7 @@ bielement.controller('bielementList',function($http,$routeParams){
             page:$routeParams.pageNo,
             limit:12
         },
-        url:appUrl+'/all'
+        url:appUrl+'/bielement/all'
     }).then(function(response){
         self.allbielements=response.data.allbielements;
         self.countbielement=response.data.totalbielements;
@@ -94,7 +99,7 @@ bielement.controller('bielementList',function($http,$routeParams){
             data:{
                 searchText:self.searchText
             },
-            url:appUrl+'/search'
+            url:appUrl+'/bielement/search'
         }).then(function(response){
             self.allbielements=response.data.allbielements;
             self.countbielement=response.data.countAll;
@@ -109,7 +114,7 @@ bielement.controller('bielementList',function($http,$routeParams){
                 page:current_page,
                 limit:self.maxSize
             },
-            url:appUrl+'/all'
+            url:appUrl+'/bielement/all'
         }).then(function(response){
             self.allbielements=response.data.allbielements;
             self.countbielement=response.data.totalbielements;
@@ -133,7 +138,7 @@ bielement.controller('bielementDetail',function($http,$routeParams){
         data:{
             bi_id:$routeParams.bielementId
         },
-        url:appUrl+'/detail'
+        url:appUrl+'/bielement/detail'
     }).then(function(response){
         self.bielementData=response.data;
     });
@@ -145,7 +150,7 @@ bielement.controller('bielementDetail',function($http,$routeParams){
             url:appUrl+'/member/check_session'
         }).then(function(response){
             if(response.data.bool==false){
-                self.memberLogRes='You are not loggedIn';
+                self.memberLogRes='Não efetuou login!';
                 alert('Necessita de fazer login para colecionar este BI Element.');
             }else{
                 self.memberData=response.data.memberData[0];

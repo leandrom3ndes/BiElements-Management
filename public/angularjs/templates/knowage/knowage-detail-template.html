@@ -1,37 +1,41 @@
-<div class="row" ng-controller="knowageDetail as kD">
+<div class="row" ng-controller="knowageDetail as kd">
+    <div class="col-sm-3">
+        <img class="img-fluid" src="storage/knowages/{{ kd.knowageData.knowage_cover_img }}" alt="{{ kd.knowageData.documentName }}" />
+    </div>
     <div class="col-sm-9">
-        <h3 class="mb-3">Knowage Dashboard</h3>
+        <h3 class="mb-3">{{ kd.knowageData.documentLabel }}</h3>
         <table class="table table-bordered">
             <tr>
+                <th>Nome</th>
+                <td>{{ kd.knowageData.documentName }}</td>
+            </tr>
+            <tr>
                 <th>Descrição</th>
-                <td></td>
+                <td>{{ kd.knowageData.documentDescription }}</td>
             </tr>
             <tr>
                 <th>Tipo</th>
-                <td></td>
+                <td>{{ kd.knowageData.documentType }}</td>
             </tr>
             <tr>
-                <th>Criador</th>
-                <td></td>
+                <th>Role</th>
+                <td>{{ kd.knowageData.executionRole }}</td>
             </tr>
             <tr>
-                <th>Data de criação</th>
-                <td></td>
-            </tr>
-            <tr>
+                <th>Dataset</th>
                 <td>
-                    <!-- Modal -->
-                    <div class="modal fade bd-modal-dashboards" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                    <!-- Modal Dataset List-->
+                    <div class="modal fade kd-modal-dashboards" id="datasetKnowageModal" tabindex="-1" role="dialog" aria-hidden="true">
                         <div class="modal-dialog modal-dialog-centered modal-xl d-flex justify-content-center" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLongTitle">TESTE</h5>
+                                <h5 class="modal-title" id="exampleModalLongTitle">Visualizar Dataset</h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                                 </div>
                                 <div class="modal-body">
-                                    <div height="300px" style="display:none" width="800px" id='targetDiv'></div>
+                                    <table id="knowageDataset"></table>
                                 </div>
                                 <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
@@ -39,12 +43,72 @@
                             </div>
                         </div>
                     </div>
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
-                        Abrir
+                    <!-- Modal Dataset List-->
+                    <button type="button" class="btn btn-secondary" ng-click="kd.knowageExecuteDataSet()" data-toggle="modal" data-target="#datasetKnowageModal">
+                        {{ kd.knowageData.datasetLabel }}
                     </button>
-                    
-                    </td>
+
+
+
+                </td>
+            </tr>
+            <tr>
                 <td>
+                    <!-- Modal Knowage Embed-->
+                    <div class="modal fade kd-modal-dashboards" id="embedKnowageModal" tabindex="-1" role="dialog" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered modal-xl d-flex justify-content-center" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLongTitle">Knowage Foodmart Embed</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                                </div>
+                                <div class="modal-body">
+                                    <div id="targetDiv"></div>
+                                </div>
+                                <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Modal Knowage Embed-->
+                    <button type="button" class="btn btn-primary" ng-click="kd.knowageEmbed()" data-toggle="modal" data-target="#embedKnowageModal">
+                        Abrir documento
+                    </button>
+                </td>
+                <td>
+                    <!-- Modal Dataset List-->
+                    <div class="modal fade kd-modal-dashboards" id="datasetListKnowageModal" tabindex="-1" role="dialog" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered modal-xl d-flex justify-content-center" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLongTitle">Lista de Datasets</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                                </div>
+                                <div class="modal-body">
+                                    <table>
+                                        <th>Label</th>
+                                        <th>Name</th>
+                                        <th>Description</th>
+                                        
+                                        <tbody id="knowageDatasetsList">
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Modal Dataset List-->
+                    <button type="button" class="btn btn-secondary" ng-click="kd.knowageGetDataSetList()" data-toggle="modal" data-target="#datasetListKnowageModal">
+                        Lista de datasets
+                    </button>
                 </td>
             </tr>
         </table>

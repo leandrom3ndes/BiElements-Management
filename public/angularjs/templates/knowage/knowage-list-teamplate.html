@@ -1,0 +1,43 @@
+<div ng-controller="knowageList as kl">
+    <div class="row">
+        <div class="input-group mb-5 col-12">
+            <input type="text" class="form-control form-control-lg" ng-keyup="kl.searchClick()" ng-model="kl.searchText" placeholder="Pesquise por o título do documento..." />
+            <div class="input-group-append">
+              <button class="btn btn-danger btn-lg" type="button" ng-click="kl.searchClick()" id="button-addon2">Pesquisar</button>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-md-4 knowage-list" ng-repeat="kElement in kl.allknowage">
+            <div class="card mb-4 shadow-sm">
+                <img class="img-fluid" src="storage/knowages/{{ kElement.knowage_cover_img }}" />
+                <div class="card-body">
+                    <h4><a href="#!/knowagedetail/{{ kElement.id }}">{{ kElement.documentName }}</a></h4>
+                    <p class="card-text">{{ kElement.documentDescription }}</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="btn-group">
+                        <a href="#!/knowagedetail/{{ kElement.id }}" class="btn btn-primary">
+                            <i class="fa fa-eye"></i> Detalhe
+                        </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Pagination -->
+    <div class="row">
+        <div class="col-12">
+            <nav>
+              <ul class="pagination">
+                <li ng-repeat="page in [] | range:kl.pageLinks" ng-click="kl.pageLinkClick(page)" class="page-item">
+                    <a class="page-link" href="#!/knowage-list/page/{{ page }}">{{ page }}</a>
+                </li>
+              </ul>
+            </nav>
+        </div>
+    </div>
+    
+    </div>

@@ -32,7 +32,7 @@
     margin-bottom: .25rem;
   }
 
-  /* angularjs Animation */
+  /* angularjs Animation Bi Element*/
 .bielement-list.ng-enter,
 .bielement-list.ng-leave,
 .bielement-list.ng-move {
@@ -57,6 +57,32 @@
   opacity: 0;
 }
 
+/* angularjs Animation Knowage*/
+.knowage-list.ng-enter,
+.knowage-list.ng-leave,
+.knowage-list.ng-move {
+  transition: 0.5s linear all;
+}
+
+.knowage-list.ng-enter,
+.knowage-list.ng-move {
+  opacity: 0;
+}
+
+.knowage-list.ng-enter.ng-enter-active,
+.knowage-list.ng-move.ng-move-active{
+  opacity: 1;
+}
+
+.knowage-list.ng-leave{
+  opacity: 1;
+}
+
+.knowage-list.ng-leave.ng-leave-active {
+  opacity: 0;
+}
+
+/* Bootstrap Modal*/
 .modal {
   padding: 0 !important;
 }

@@ -46,10 +46,6 @@ class BiMemberController extends Controller
         }
         echo json_encode($res);
     }
-    // Member Profile
-    function member_profile(){
-        
-    }
     // Member Logout
     function member_logout(){
         session()->forget(['loggedIn', 'memberData']);

@@ -41,7 +41,7 @@
 
                     <td>
                         <a href="{{ url('admin/knowage/update/'.$know->id) }}" class="btn btn-sm btn-primary"><i class="fa fa-pencil"></i></a>
-                        <a onclick="return confirm('Are you sure to delete this?')" href="{{ url('admin/engine/delete/'.$know->id) }}" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></a>
+                        <a onclick="return confirm('Are you sure to delete this?')" href="{{ url('admin/knowage/delete/'.$know->id) }}" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></a>
                     </td>
                 </tr>
                 @endforeach
