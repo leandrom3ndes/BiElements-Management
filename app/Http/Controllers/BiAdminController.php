@@ -35,6 +35,6 @@ class BiAdminController extends Controller
     // Admin Logout
     function logout(){
         session()->forget('adminLogged');
-        return redirect('admin/login');
+        return redirect('/');
     }
 }

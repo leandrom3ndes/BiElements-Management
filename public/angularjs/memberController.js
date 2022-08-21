@@ -40,8 +40,10 @@ bielement.controller('memberLogin',function($http,$location){
         }).then(function(response){
             if(response.data.bool==true){
                 self.session=true;
-                $location.path('member/profile');
+                //$location.path('member/profile');
                 location.reload();
+                $location.path('member/profile');
+                
             }else{
                 self.error=true;
             }

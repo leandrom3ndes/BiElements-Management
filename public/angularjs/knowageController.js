@@ -29,16 +29,7 @@ bielement.controller('knowageLogin',function($http, $location){
             var user = userKnowage.value;
             var password = passworKnowage.value;
 
-            /*
-            * the callback invoked uppon request termination
-            *
-            * @param xhr the XMLHttpRequest object
-            */
             var cb = function(xhr) {
-                /*var authenticationEl =  document.getElementById('authentication');
-                var knowageEmbed =  document.getElementById('knowageEmbed');
-                authenticationEl.style.display = "none";
-                knowageEmbed.style.display = "inline";*/
                 var self=this;
                 self.allCats='';
                 $http({
@@ -143,11 +134,9 @@ bielement.controller('knowageDetail',function($http,$routeParams){
         url:appUrl+'/knowage/detail'
     }).then(function(response){
         self.knowageData=response.data;
-        console.log("RESULTADO PRIMEIRO: " + self.knowageData.documentDescription)
     });
 
     self.knowageEmbed=function(){
-        console.log("RESULTADO SEGUNDOO: " + self.knowageData.executionRole);
         Sbi.sdk.api.injectDocument({
             documentLabel: self.knowageData.documentLabel
             , documentName: self.knowageData.documentName

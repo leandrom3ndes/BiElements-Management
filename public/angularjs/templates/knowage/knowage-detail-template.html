@@ -47,9 +47,6 @@
                     <button type="button" class="btn btn-secondary" ng-click="kd.knowageExecuteDataSet()" data-toggle="modal" data-target="#datasetKnowageModal">
                         {{ kd.knowageData.datasetLabel }}
                     </button>
-
-
-
                 </td>
             </tr>
             <tr>
@@ -59,7 +56,7 @@
                         <div class="modal-dialog modal-dialog-centered modal-xl d-flex justify-content-center" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLongTitle">Knowage Foodmart Embed</h5>
+                                <h5 class="modal-title" id="exampleModalLongTitle">{{ kd.knowageData.documentLabel }}</h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
@@ -92,9 +89,8 @@
                                 <div class="modal-body">
                                     <table>
                                         <th>Label</th>
-                                        <th>Name</th>
-                                        <th>Description</th>
-                                        
+                                        <th>Nome</th>
+                                        <th>Descrição</th>
                                         <tbody id="knowageDatasetsList">
                                         </tbody>
                                     </table>
