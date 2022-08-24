@@ -17,7 +17,7 @@
         <tr>
             <th>Bielement Engine</th>
             <td>
-                <select name="bi_eng" id="" class="form-control">
+                <select name="eng_id" id="" class="form-control">
                     <option value="">--- Select Option ---</option>
                     @if(count($engines)>0)
                         @foreach($engines as $eng)
@@ -25,8 +25,8 @@
                         @endforeach
                     @endif
                 </select>
-                @if($errors->has('bi_eng'))
-                @foreach($errors->get('bi_eng') as $message)
+                @if($errors->has('eng_id'))
+                @foreach($errors->get('eng_id') as $message)
                 <p class="p-0 text-danger">{{ $message }}</p>
                 @endforeach
                 @endif
@@ -35,7 +35,7 @@
         <tr>
             <th>Bielement Nome</th>
             <td>
-                <input type="text" name="bi_name" class="form-control" placeholder="Enter Bielement Name" />
+                <input type="text" name="bi_name" class="form-control" placeholder="Insira o nome do Bielement" />
                 @if($errors->has('bi_name'))
                 @foreach($errors->get('bi_name') as $message)
                 <p class="p-0 text-danger">{{ $message }}</p>
@@ -72,7 +72,7 @@
         <tr>
             <th>Bielement embed</th>
             <td>
-                <input type="text" name="bi_embed" class="form-control" placeholder="Insira o código iframe" />
+                <input type="text" name="bi_embed" class="form-control" placeholder="Insira o link para o embed iframe" />
                 @if($errors->has('bi_embed'))
                 @foreach($errors->get('bi_embed') as $message)
                 <p class="p-0 text-danger">{{ $message }}</p>
@@ -83,7 +83,7 @@
         <tr>
             <th>Bielement autor</th>
             <td>
-                <input type="text" name="bi_creator" class="form-control" placeholder="Enter Bielement Publisher" />
+                <input type="text" name="bi_creator" class="form-control" placeholder="Insira o nome do autor" />
                 @if($errors->has('bi_creator'))
                 @foreach($errors->get('bi_creator') as $message)
                 <p class="p-0 text-danger">{{ $message }}</p>
@@ -94,7 +94,7 @@
         <tr>
             <th>Bielement data de publicação</th>
             <td>
-                <input type="date" name="bi_publish_date" class="form-control" placeholder="Enter Bielement Publish Date" />
+                <input type="date" name="bi_publish_date" class="form-control" placeholder="Insira a data de publicação" />
                 @if($errors->has('bi_publish_date'))
                 @foreach($errors->get('bi_publish_date') as $message)
                 <p class="p-0 text-danger">{{ $message }}</p>
@@ -105,7 +105,7 @@
         <tr>
             <th>Bielement descrição</th>
             <td>
-                <textarea name="bi_desc" class="form-control" placeholder="Enter Bielement Description" id="" cols="30" rows="10"></textarea>
+                <textarea name="bi_desc" class="form-control" placeholder="Insira uma descrição" id="" cols="30" rows="10"></textarea>
                 @if($errors->has('bi_desc'))
                 @foreach($errors->get('bi_desc') as $message)
                 <p class="p-0 text-danger">{{ $message }}</p>

@@ -77,7 +77,7 @@
       
       <main role="main" style="margin-top:64px;">
         <section class="jumbotron text-center">
-        <object data="https://demo.knowage-suite.com/knowage/public/servlet/AdapterHTTP?ACTION_NAME=EXECUTE_DOCUMENT_ACTION&OBJECT_LABEL=Sales%20analysis&TOOLBAR_VISIBLE=false&ORGANIZATION=DEMO&NEW_SESSION=true&PARAMETERS=hidden%3D%26hidden_field_visible_description%3D" height="500px" width="100%" type="text/html"></object>
+        <object data="http://localhost:8080/knowage/servlet/AdapterHTTP?ACTION_NAME=EXECUTE_DOCUMENT_ACTION&OBJECT_LABEL=Sales analysis&TOOLBAR_VISIBLE=false&ORGANIZATION=DEMO&NEW_SESSION=true&PARAMETERS=hidden=&hidden_field_visible_description=" height="500px" width="100%" type="text/html"></object>
         </section>
       
         <div class="album py-5 bg-light">

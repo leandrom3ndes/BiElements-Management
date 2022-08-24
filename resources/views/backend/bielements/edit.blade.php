@@ -17,7 +17,7 @@
         <tr>
             <th>Bielement Engine</th>
             <td>
-                <select name="bi_eng" id="" class="form-control">
+                <select name="eng_id" id="" class="form-control">
                     <option value="">--- Select Option ---</option>
                     @if(count($engines)>0)
                         @foreach($engines as $cat)
@@ -29,8 +29,8 @@
                         @endforeach
                     @endif
                 </select>
-                @if($errors->has('bi_eng'))
-                @foreach($errors->get('bi_eng') as $message)
+                @if($errors->has('eng_id'))
+                @foreach($errors->get('eng_id') as $message)
                 <p class="p-0 text-danger">{{ $message }}</p>
                 @endforeach
                 @endif

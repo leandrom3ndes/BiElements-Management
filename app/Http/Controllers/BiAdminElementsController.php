@@ -28,7 +28,7 @@ class BiAdminElementsController extends Controller
     // Submit Add Form
     function submit_add_form(Request $request){
         $request->validate([
-            'bi_eng'=>'required',
+            'eng_id'=>'required',
             'bi_name'=>'required',
             'bi_type'=>'required',
             'bi_cover_img'=>'required',
@@ -47,7 +47,7 @@ class BiAdminElementsController extends Controller
         $image->move($destinationPath, $imageName);
 
         $bielement=new Bielement;
-        $bielement->eng_id=$request->bi_eng;
+        $bielement->eng_id=$request->eng_id;
         $bielement->bi_name=$request->bi_name;
         $bielement->bi_type=$request->bi_type;
         $bielement->bi_cover_img=$imageName;
@@ -69,24 +69,24 @@ class BiAdminElementsController extends Controller
     // Update Data
     function update(Request $request,$id){
         $request->validate([
-            'bi_eng'=>'required',
+            'eng_id'=>'required',
             'bi_name'=>'required',
             'bi_type'=>'required',
             'bi_embed'=>'required',
             'bi_base64'=>'required',
             'bi_creator'=>'required',
             'bi_publish_date'=>'required',
-            'bi_desc'=>'required',
+            'bi_desc'=>'required'
         ]);
         // Image
-        $image = $request->file('bi_cover_img');
         if($request->hasFile('bi_cover_img')){
-            $imageBase64 = base64_encode(file_get_contents($image));
+            $image = $request->file('bi_cover_img');
             $imageName=time().'.'.$image->getClientOriginalExtension();
             $destinationPath = public_path('/storage/bielements');
+            $imageBase64 = base64_encode(file_get_contents($image));
             $image->move($destinationPath, $imageName);
             $bielement=Bielement::find($id);
-            $bielement->eng_id=$request->bi_eng;
+            $bielement->eng_id=$request->eng_id;
             $bielement->bi_name=$request->bi_name;
             $bielement->bi_type=$request->bi_type;
             $bielement->bi_cover_img=$imageName;
@@ -100,7 +100,7 @@ class BiAdminElementsController extends Controller
             $imageName=$request->prev_img;
             // Save BiElements Nop saving previous image
             $bielement=Bielement::find($id);
-            $bielement->eng_id=$request->bi_eng;
+            $bielement->eng_id=$request->eng_id;
             $bielement->bi_name=$request->bi_name;
             $bielement->bi_type=$request->bi_type;
             $bielement->bi_cover_img=$imageName;
